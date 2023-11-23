@@ -1,36 +1,40 @@
-import express from 'express';
-import { PORT, mongoDBURL} from './config.js';
-import mongoose from 'mongoose';
+import dotenv from "dotenv";
+import express from "express";
+import appointmentRoutes from "./routes/appointments.js";
+import userRoutes from "./routes/user.js";
+import mongoose from "mongoose";
 import cors from 'cors';
+//import globalErrorHandler from "./middlewares/globalErrorHandler";
 
+// Load configuration from a .env file
+dotenv.config();
+// express app
 const app = express();
-
-// Middleware for parsing request body
+// middleware
+app.use(cors());
 app.use(express.json());
 
-//app.use(cors());
-//Option 2: Allow Custom Origins
-app.use(
-  cors({
-    origin: 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type'],
-  })
-);
-
-app.get('/', (request, response) => {
-    console.log(request);
-    return response.status(234).send('Connected to backend');
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
 });
 
+// routes
+app.use("/api/appointments", appointmentRoutes);
+app.use("/api/user", userRoutes);
+
+//app.use(globalErrorHandler);
+
+// connect to db
 mongoose
-    .connect(mongoDBURL)
-    .then(() => {
-        console.log('App connected to database');
-        app.listen(PORT, () => {
-            console.log(`App is listening to port: ${PORT}`);
-        });
-    })
-    .catch((error) => {
-        console.log(error);
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("connected to database");
+    // listen to port
+    app.listen(process.env.PORT, () => {
+      console.log("listening for requests on port", process.env.PORT);
     });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
