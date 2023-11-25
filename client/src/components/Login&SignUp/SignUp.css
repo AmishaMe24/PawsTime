@@ -43,7 +43,7 @@
   width: 2000px;
   height: 2000px;
   border-radius: 50%;
-  background: linear-gradient(-45deg, #795cf9, #7355f7);
+  background: linear-gradient(-45deg, #05638d, #05638d);
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
@@ -150,8 +150,8 @@
 }
 
 .social-icon:hover {
-  border: 1px solid #6e4dff;
-  color: #6e4dff;
+  border: 1px solid #39ABC6;
+  color: #39ABC6;
 }
 
 .input-field input::placeholder {
@@ -166,7 +166,7 @@
   outline: none;
   border-radius: 50px;
   cursor: pointer;
-  background-color: #7355f7;
+  background-color: #05638d;
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
@@ -175,7 +175,7 @@
   transition: 0.5s;
 }
 .iBtn:hover {
-  background: #4c25f5;
+  background: #39ABC6;
 }
 
 .social-text {
@@ -206,6 +206,8 @@
   justify-content: space-around;
   text-align: center;
   z-index: 7;
+  
+  
 }
 
 .panel .content {

@@ -1,0 +1,357 @@
+@import url("https://fonts.googleapis.com/css?family=Cherry Bomb");
+@import url("https://fonts.googleapis.com/css?family=Battambang");
+
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Battambang&family=Cherry+Bomb+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');
+
+
+.text-logo{
+    font-family: 'Boogaloo';
+    font-size: 50px;
+}
+.blue{
+    color:#39ABC6;
+}
+
+.yellow{
+    color: #F0D153;
+}
+
+.home-text{
+    font-family:'CherrySwash';
+}
+
+
+header {
+    background: #05638d;
+    display: flex;
+    justify-content: space-between;
+    /* padding: 0.1em;
+    gap: 1em; */
+    /* height: 100px;  */
+    /* align-items: center;  */
+    /* flex-direction:row;
+    max-width: 100%; */
+    /* align-items: flex-start; */
+
+}
+
+.bookstore-logo{
+    font-family: 'Cherry Bomb';font-size: 30px;
+    color: white;
+
+}
+
+/* .navbar {
+background-color: #B4D47E;
+color: #fff;
+padding: 10px 0;
+} */
+
+/* Style the navigation list
+ .nav-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+} */
+
+/* Style the navigation items */
+/* .nav-item {
+    margin: 0 15px;
+}  */
+
+/* Style the navigation links */
+/* .nav-item a {
+   text-decoration: none;
+   color: #fff;
+   font-weight: bold;
+   transition: color 0.3s ease;
+}  */
+
+/* Add hover effect for the navigation links */
+/* .nav-item a:hover {
+   color: #007bff;
+}  */
+
+/* .text-logo {
+ font-family: 'Cherry Bomb';font-size: 40px;
+ color: white;
+}  */
+
+/* .welcome-text{
+  float:right;
+  justify-content: flex-end;
+  font-family: 'Battambang';font-size: 18px;
+  color: white;
+  margin-left: 0px;
+  max-width: 100%;
+  width: 100%;
+} */
+
+
+/* .logout-button{ */
+/* align-items: center; */
+/* display: flex;
+align-items: flex-end;
+font-family: 'Battambang';
+background-color: #CE4375; */
+/* padding: 15px 32px; */
+/* text-align: center;
+font-size: 16px; */
+/* width: 100%; */
+/* margin-top: -100px;
+margin-left: 400px;
+margin-right: 20px; */
+/* float:right;
+align-self: flex-end;
+cursor: pointer;
+justify-content: flex-end;
+margin-left: 1000px;
+padding: 10px 20px;
+border-radius: 25px;
+color:white;
+margin-top: 2px;
+margin-bottom: 2px;
+box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+
+
+/* .text-and-logout-button p{
+position: relative;
+color: white;
+padding: 2em;
+left: 600px;
+font-size: 18px;
+top:0.1px
+} */
+
+/* .welcome-text{
+  font-family: 'Battambang';font-size: 18px;
+  color: white;
+  align-self: flex-end;
+  padding: 2em;
+  float:right;
+  margin-right: 200px;
+
+      float: right;
+      font-family: 'Battambang';font-size: 18px;
+      color: white;
+
+} */
+
+/* .logout-button{
+ font-family: 'Battambang';font-size: 15px;
+ color: white;
+ background-color: #CE4375;
+ top: 2px;
+}
+
+
+section button {
+ position:relative   ;
+ font-family: 'Battambang';font-size: 15px;
+ color: white;
+ background-color: #CE4375;
+ margin-bottom: 200px;
+ padding: 0.5em;
+ border-radius: 25px;
+ margin-left:400px;
+
+}
+
+.search-bar{
+ position:relative;
+ top: 30%;
+ padding: 10px 20px;
+ border-radius: 25px;
+ margin-left:200px;
+ margin-bottom:1000px;
+} */
+
+.hello-logout{
+    display:flex;
+    margin-top: 40px;
+    margin-right: 30px;
+
+
+}
+
+.hello-logout p{
+    font-family: 'Battambang';font-size: 16px;
+    color: white;
+}
+
+.hello-logout button{
+    font-family: 'Battambang';font-size: 15px;
+    color: #2634AE;
+    background-color: #F0D153;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border:none;
+
+}
+
+.bookstore-logo{
+    display:flex;
+    /* border:1px solid red; */
+
+
+}
+
+.nav-container{
+    display:flex;
+    flex-direction: column;
+    /*border:1px solid red;*/
+    justify-content: space-between;
+}
+
+.hello-logout{
+    display: flex;
+    flex-direction: row;
+    /*border:1px solid red;*/
+    justify-content: flex-end;
+
+}
+
+.categories-searchbar{
+    display: flex;
+    flex-direction: row;
+    /*border:1px solid red;*/
+    gap:2em;
+
+}
+
+/* .categories-button{
+    font-family: 'Battambang';font-size: 15px;
+    color: white;
+    background-color: #CE4375;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border:none;
+    cursor: pointer;
+} */
+
+.search-bar{
+    border-radius: 25px;
+    border : none;
+    width: 300px;
+    height:30px;
+    margin-top:10px;
+
+}
+
+.cart-button{
+    font-family: 'Battambang';font-size: 15px;
+    color: white;
+    background-color: #CE4375;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border:none;
+}
+
+.cart-item-count{
+    color:white;
+    width: 20px;
+    height: 20px;
+    /* border-radius: 50%;
+    background-color: #007bff;  */
+    /* color: #fff;
+    text-align: center;
+    line-height: 100px;
+    font-size: 16px;
+    font-weight: bold;  */
+}
+
+/*!*.body-books{*!*/
+/*!*    display:flex;*!*/
+/*!*    flex-direction: row;*!*/
+/*!*    !* border:1px solid red; *!*!*/
+/*!*    justify-content: space-between;*!*/
+/*!*    background-color:whitesmoke;*!*/
+/*!*    background-size :cover;*!*/
+/*!*}*!*/
+
+/*.container-book-images{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    !* border:1px solid red; *!*/
+/*    gap:5em;*/
+/*    row-gap: 48.5px;*/
+/*    flex-wrap: wrap;*/
+/*    left:100px;*/
+/*    !* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); *!*/
+/*    width:900px;*/
+
+/*}*/
+
+
+/*.container-book-images p{*/
+/*    font-family: 'Battambang';font-size: 18px;*/
+/*    color: #CE4375;*/
+/*    font-weight: bold;*/
+/*    padding: 1px;*/
+/*}*/
+
+/*.text-cta p{*/
+/*    font-family: 'Battambang';font-size: 19px;*/
+/*    color:#092BA0;*/
+/*    font-weight: bold;*/
+/*    text-align: center;*/
+/*    position:relative;*/
+/*    top:200px;*/
+/*    padding: 10px 20px;*/
+
+/*}*/
+
+/*.CTA{*/
+/*    font-family: 'Battambang';font-size: 20px;*/
+/*    color: white;*/
+/*    background-color: #CE4375;*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 10px;*/
+/*    border:none;*/
+/*    position:relative;*/
+/*    top:200px;*/
+/*    left:350px;*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*header {*/
+/*    background: var(--secondary-background-color);*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    padding: 1em;*/
+/*    gap: 1em;*/
+/*}*/
+
+/*.text-logo {*/
+/*    font-family: var(--title-font-family);*/
+/*}*/
+
+/*.search-bar {*/
+/*    padding: 0.5em;*/
+/*}*/
+
+/*@media (max-width: 600px) {*/
+/*    header {*/
+/*        flex-direction: column;*/
+/*    }*/
+/*}*/

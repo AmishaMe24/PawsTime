@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
 import LoginForm from "./components/Login&SignUp/LoginForm";
+import SignUp from "./components/Login&SignUp/SignUp";
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
       </Router>

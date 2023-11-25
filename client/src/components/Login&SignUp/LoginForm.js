@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { Link} from 'react-router-dom';
-import log from '../../assets/images/info.svg';
-import register from '../../assets/images/register.svg';
+import log from '../../assets/images/image-removebg-preview (1).png';
+import register from '../../assets/images/image-removebg-preview (1).png';
 import './SignUp.css';
 import Login from './Login';
 import SignUp from './SignUp';
