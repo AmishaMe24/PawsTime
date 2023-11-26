@@ -1,0 +1,11 @@
+[
+    {
+      "id": 1,
+      "patientName": "John Doe",
+      "appointmentTime": 30, 
+      "waitTime": 5, 
+      "noShow": false,
+      "cancellation": false
+    }
+]
+  
