@@ -6,7 +6,7 @@ import {CreateAppointMent, GetAppointments, GetAppointment, DeleteAppointment, U
 const router = express.Router();
 
 // require auth for all appointment routes
-router.use(requireAuth)
+//router.use(requireAuth)
 
 // GET all appointments
 router.get('/', GetAppointments)

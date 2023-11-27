@@ -10,7 +10,7 @@ const Header = ({ selectedDate, handleAppointmentDate }) => {
 
     return (
         <div className={ path === '/appointment' ? 'header-appointment' : 'header-home'}>
-            <Navbar />
+            {/* <Navbar /> */}
             <Banner selectedDate={selectedDate} handleAppointmentDate={handleAppointmentDate} />
         </div>
     );

@@ -14,7 +14,7 @@ const Appointment = () => {
         <>
             <Header selectedDate={selectedDate} handleAppointmentDate={handleAppointmentDate} />
             <AvailableAppointments selectedDate={selectedDate} />
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 };

@@ -1,6 +1,6 @@
 import { Box, Button, Container, Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import dr from '../../images/dr-caudi.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -32,12 +32,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MakeAppointments = () => {
-    // const history = useHistory();
+    const history = useNavigate();
 
     const classes = useStyles();
 
     const handleAppointment = () => {
-        // history.push('/appointment')
+        history.push('/appointment')
     }
 
 
@@ -50,7 +50,7 @@ const MakeAppointments = () => {
                             <img className={classes.imgStyle} src={dr} alt="" />
                         </Box>
                     </Grid>
-                    <Grid style={{position: 'relative'}} item xs={12} sm={7}>
+                    <Grid style={{ position: 'relative' }} item xs={12} sm={7}>
                         <Box p={5}>
                             <h4 m={5} style={{ color: '#15D1C5', margin: '15px 0' }}>APPOINTMENT</h4>
                             <h2>Make An APpointment <br /> Today</h2>
