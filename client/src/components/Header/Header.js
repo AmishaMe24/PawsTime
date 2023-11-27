@@ -12,8 +12,7 @@ const Header = () => {
   const handleClick = () => {
     logout();
   }
-  const username = user.email.split('@')[0];
-
+  const username = user ? user.email.split('@')[0] : '';
 
   return (
     <div>

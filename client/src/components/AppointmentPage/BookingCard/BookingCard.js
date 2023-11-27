@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const BookingCard = ({ selectedDate, list: {title, time, space} }) => {
+const BookingCard = ({ selectedDate, serviceType }) => {
     const classes = useStyles();
 
     const [openModal, setOpenModal] = useState(false);
@@ -27,14 +27,14 @@ const BookingCard = ({ selectedDate, list: {title, time, space} }) => {
             <Card className={classes.root}>
                 <CardContent>
                     <Typography variant="h4" component="h2">
-                        {title}
+                        {serviceType}
                     </Typography>
-                    <Typography variant="h6" component="h4">
+                    {/* <Typography variant="h6" component="h4">
                         {time}
                     </Typography>
                     <Typography variant="body2" component="h4">
                         {space} spaces available
-                    </Typography>
+                    </Typography> */}
                 </CardContent>
                 <Button
                     onClick={handleModalOpen}
@@ -49,8 +49,7 @@ const BookingCard = ({ selectedDate, list: {title, time, space} }) => {
                 <BookingFormModal
                     openModal={openModal}
                     handleModalClose={handleModalClose}
-                    title={title}
-                    time={time}
+                    serviceType={serviceType}
                     selectedDate={selectedDate}
                 />  
             </Card>

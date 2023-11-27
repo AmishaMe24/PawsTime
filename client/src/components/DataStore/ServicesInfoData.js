@@ -10,15 +10,10 @@ const servicesInfoData = [
         size: '500px'
     },
     {
-        name: 'Vet Care',
-        description: "Your pet's well-being is our priority; compassionate veterinary care tailored to ensure a lifetime of health and happiness.",
+        name: 'Veterinary',
+        description: 'Experience the pinnacle of pet wellness with our comprehensive health care services, designed to support, protect, and enhance the life of your furry family member.',
         img: vet
-    },
-    // {
-    //     name: 'Teeth Whitening',
-    //     description: 'Lorem ipsum dolor sit amet consectetur consectetur adipisicing elit. adipisicing elit. Obcaecati, ratione!',
-    //     img: whitening
-    // },
+    }
 ]
 
 export default servicesInfoData;

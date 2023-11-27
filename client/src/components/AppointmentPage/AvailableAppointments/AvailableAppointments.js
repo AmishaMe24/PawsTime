@@ -1,8 +1,7 @@
 import { Container, Grid } from '@material-ui/core';
 import React from 'react';
-import availableAppointmentLists from '../../DataStore/AvailableAppointmentLists';
 import BookingCard from '../BookingCard/BookingCard';
-
+import servicesInfoData from '../../DataStore/ServicesInfoData';
 
 const AvailableAppointments = ({ selectedDate }) => {
 
@@ -11,11 +10,11 @@ const AvailableAppointments = ({ selectedDate }) => {
             <h2 style={{ color: '#05638d', marginTop: '5rem' }}>Available Appointments on {selectedDate.toDateString()} </h2>
             <Grid container spacing={1} style={{ margin: '5rem' }}>
                 {
-                    availableAppointmentLists.map(list =>
+                    servicesInfoData.map(list =>
                         <BookingCard
                             key={list.id}
                             selectedDate={selectedDate}
-                            list={list}
+                            serviceType={list.name}
                         />
                     )
                 }

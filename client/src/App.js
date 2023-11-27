@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import React, { createContext, useState } from "react";
+import React, { createContext } from "react";
 import { useAuthContext } from "./hooks/useAuthContext.js";
 
 // pages & components
@@ -12,22 +12,19 @@ export const UserContext = createContext();
 
 function App() {
   const { user } = useAuthContext();
-  const [appointment, setAppointment] = useState({});
 
   return (
-    <UserContext.Provider value={{ appointment, setAppointment}}>
-      <div className="App">
-        <Router>
-          <Header />
-          <Routes>
-            <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
-            <Route path="/login" element={!user ? <LoginForm /> : <Navigate to="/" />} />
-            <Route path="/appointment" element={<Appointment></Appointment>} />
-            <Route path="*" element={<div>Page Not Found</div>} />
-          </Routes>
-        </Router>
-      </div>
-    </UserContext.Provider>
+    <div className="App">
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+          <Route path="/login" element={!user ? <LoginForm /> : <Navigate to="/" />} />
+          <Route path="/appointment" element={<Appointment />} />
+          <Route path="*" element={<div>Page Not Found</div>} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
