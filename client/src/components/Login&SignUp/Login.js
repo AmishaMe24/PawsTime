@@ -2,16 +2,24 @@ import React, { useState } from "react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import Spinner from "react-bootstrap/Spinner";
-import { useLogin } from "../../hooks/useLogin.js";
+import axios from "axios";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+import { Toast } from "react-bootstrap";
+import { AuthContext } from "../../context/AuthContext.js";
+import SocialSignUp from "./SocialSignUp.js";
 
 const Login = ({ handleResponse }) => {
-  const { login, error, loading } = useLogin();
+  const { user, loading, error, dispatch } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
+  const baseUrl = "http://localhost:4000";
 
   const [show, setShow] = useState(true);
 
@@ -20,7 +28,19 @@ const Login = ({ handleResponse }) => {
   }, 10000);
 
   const onSubmit = async (event) => {
-    await login(event);
+    dispatch({ type: "LOGIN_START" });
+    try {
+      const res = await axios.post(`${baseUrl}/api/user/login`, event);
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
+      swal({
+        icon: "success",
+        text: "Successfully Sign In",
+        timer: 2000,
+      });
+      navigate("/");
+    } catch (err) {
+      dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+    }
   };
 
   return (
@@ -52,28 +72,15 @@ const Login = ({ handleResponse }) => {
       {errors.password && (
         <span className="text-warning">This field is required</span>
       )}
-      {error && (
-        <div
-          style={{
-            padding: "10px",
-            background: "#ffefef",
-            border: "1px solid var(--error)",
-            color: "var(--error)",
-            borderRadius: "4px",
-            margin: "20px 0",
-          }}
-        >
-          {error}
-        </div>
-      )}
-
+      {error && <p className="text-danger">{error.message}</p>}
       <button className="iBtn" type="submit" value="sign In">
         {loading ? <Spinner animation="border" variant="info" /> : "Sign In"}
       </button>
-      {/* <p className="social-text">Or Sign in with social platforms</p>
-      <SocialSignUp handleResponse={handleResponse} /> */}
+      <p className="social-text">Or Sign in with social platforms</p>
+      <SocialSignUp handleResponse={handleResponse} />
     </form>
   );
 };
 
 export default Login;
+
