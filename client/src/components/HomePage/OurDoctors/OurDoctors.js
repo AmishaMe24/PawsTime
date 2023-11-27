@@ -36,7 +36,7 @@ const OurDoctors = () => {
     // doctors[0] && console.log(doctors[0].image)
     return (
         <Container align="center">
-            <h4 style={{ color: '#05638d', fontWeight: 'bold', margin: '3rem' }}>OUR DOCTORS</h4>
+            <h4 style={{ color: '#05638d', fontWeight: 'bold', margin: '3rem',fontFamily:"initial",fontSize:"30px" }}>Our Team</h4>
             <Grid container spacing={3} justifyContent="center">
                 {doctors.map((doctor, idx) => (
                     <Grid key={idx} item xs={12} sm={6} md={4} lg={3}>

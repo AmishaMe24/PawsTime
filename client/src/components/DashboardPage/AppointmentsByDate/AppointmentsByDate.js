@@ -9,21 +9,22 @@ import AppointmentsTable from './AppointmentsTable';
 const AppointmentList = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [appointments, setAppointments] = useState([]);
-    const { loggedInUser } = useContext(UserContext);
+    // const { loggedInUser } = useContext(UserContext);
+    // to do amisha
 
     const handleAppointmentDate = (date) => {
         setSelectedDate(date);
     }
 
-    useEffect(() => {
-        fetch('http://localhost:5000/appointmentsByDate', {
-            method: 'POST',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({ date: selectedDate.toDateString(), email: loggedInUser.email })
-        })
-            .then(res => res.json())
-            .then(data => setAppointments(data))
-    }, [selectedDate])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/appointmentsByDate', {
+    //         method: 'POST',
+    //         headers: { 'Content-type': 'application/json' },
+    //         // body: JSON.stringify({ date: selectedDate.toDateString(), email: loggedInUser.email })
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => setAppointments(data))
+    // }, [selectedDate])
 
     return (
         <>
@@ -52,4 +53,3 @@ const AppointmentList = () => {
 };
 
 export default AppointmentList;
-

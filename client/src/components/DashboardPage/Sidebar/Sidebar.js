@@ -6,15 +6,15 @@ const Sidebar = () => {
     const { loggedInUser } = useContext(UserContext);
     const [isDoctor, setIsDoctor] = useState(false);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/isDoctor', {
-            method: 'POST',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({ email: loggedInUser.email })
-        })
-            .then(res => res.json())
-            .then(data => setIsDoctor(data));
-    }, [])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/isDoctor', {
+    //         method: 'POST',
+    //         headers: { 'Content-type': 'application/json' },
+    //         body: JSON.stringify({ email: loggedInUser.email })
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => setIsDoctor(data));
+    // }, [])
 
     const listStyle = {
         listStyle: 'none',
@@ -27,15 +27,15 @@ const Sidebar = () => {
             <ul style={listStyle}>
                 <Link to='/dashboard' >Dashboard</Link >
                 <Link to='/dashboard/appointments'>Appointments</Link >
-                {
-                    isDoctor
-                    && <>
-                        <Link to='/dashboard/allPatients'>Patients</Link >
-                        <Link to='/dashboard/prescriptions'>Prescriptions</Link >
-                        <Link to='/dashboard/addDoctor'>Add Doctor</Link >
-                        <Link to='/dashboard'>Settigns</Link >
-                    </>
-                }
+                {/* {
+                    // isDoctor
+                    // && <>
+                    //     <Link to='/dashboard/allPatients'>Patients</Link >
+                    //     <Link to='/dashboard/prescriptions'>Prescriptions</Link >
+                    //     <Link to='/dashboard/addDoctor'>Add Doctor</Link >
+                    //     <Link to='/dashboard'>Settigns</Link >
+                    // </>
+                } */}
 
             </ul>
             <div>

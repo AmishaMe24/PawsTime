@@ -1,7 +1,6 @@
 import React from 'react';
 import Footer from '../../SharedFolders/Footer/Footer';
 import Header from '../../SharedFolders/Header/Header';
-import FeaturedService from '../../HomePage/FeaturedService/FeaturedService';
 import MakeAppointment from '../../HomePage/MakeAppointment/MakeAppointment';
 import ContactUs from '../ContactUs/ContactUs';
 import OurDoctors from '../OurDoctors/OurDoctors';
@@ -16,13 +15,13 @@ const Home = () => {
         <>
             <Header />
             <Services />
-            <FeaturedService />
+            {/* <FeaturedService /> */}
             {/* <MakeAppointment /> */}
             {/* <ReviewsCard /> */}
             {/* <Blogs /> */}
             <OurDoctors />
             {/* <ContactUs /> */}
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 };

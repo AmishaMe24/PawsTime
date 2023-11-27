@@ -4,6 +4,7 @@ import '../../assets/css/Header.css';
 import { useLogout } from '../../hooks/useLogout.js';
 import { useAuthContext } from '../../hooks/useAuthContext.js';
 import "./Header.css";
+import Navbar from "../SharedFolders/Header/NavBar/NavBar";
 
 const Header = () => {
   const { logout } = useLogout();
@@ -37,7 +38,15 @@ const Header = () => {
             <span className="text-logout">Welcome!</span>
             <span className="text-logout-1">{username}</span>
             <section className="hello-logout">
-              <button onClick={handleClick}>Logout</button>
+            <section style={{display:'flex', flexDirection: 'column'}}>
+                  <Navbar></Navbar>
+              </section>
+                  <section style={{display:'flex', flexDirection: 'column'}}>
+                    <button onClick={handleClick}>Logout</button>
+                
+                  </section>
+              
+            
             </section>
           </section>
         )}

@@ -45,18 +45,19 @@ const Banner = ({ selectedDate, handleAppointmentDate }) => {
                     {
                         path !== '/appointment'
                         && <Grid item md={5}>
-                            <h2 style={{ color: '#3A4256', marginBottom: '1.5rem',fontFamily:'initial' }}>Your Pet's health and happiness <br /> all under one roof</h2>
+                            <h2 style={{ color: '#05638d', marginBottom: '1.5rem',fontFamily:'initial',fontSize:"45px",textAlign:"left" }}>Your Pet's health and happiness <br></br>all under one roof!</h2>
                             
                             <Button
                                 variant="contained"
                                 style={{
                                     fontFace : 'bold',
                                     backgroundImage: 'linear-gradient(to right, #F0D153, #05638d)',
-                                    color: 'white'
+                                    color: 'white',
+                                    fontSize: '18px'
                                 }}
                                 onClick={handleAppointmentBtn}
                             >
-                                <b>BOOK AN APPOINTMENT</b>
+                                <b>BOOK YOUR APPOINTMENT</b>
                             </Button>
                         </Grid>
                     }

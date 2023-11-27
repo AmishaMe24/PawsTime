@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
             '& a': {
                 fontSize: '1rem',
                 marginRight: theme.spacing(5),
-                color: 'gray',
+                color: 'white',
                 '&:hover': {
                     textDecoration: 'none',
                     cursor: 'pointer'
@@ -33,21 +33,21 @@ const Header = () => {
                     <Typography variant="h6" >
                         <Link to="/">Home</Link>
                     </Typography>
-                    <Typography variant="h6" >
+                    {/* <Typography variant="h6" >
                         <Link to="/dashboard/appointments">Patient</Link>
-                    </Typography>
+                    </Typography> */}
                     <Typography variant="h6" >
                         <Link to="/dashboard">Dashboard</Link>
                     </Typography>
-                    <Typography variant="h6" >
+                    {/* <Typography variant="h6" >
                         <Link to="/dashboard">Admin</Link>
-                    </Typography>
-                    <Typography variant="h6" >
+                    </Typography> */}
+                    {/* <Typography variant="h6" >
                         <Link to="/">Blog</Link>
-                    </Typography>
-                    <Typography variant="h6" >
+                    </Typography> */}
+                    {/* <Typography variant="h6" >
                         <Link to="/contact-us">Contact Us</Link>
-                    </Typography>
+                    </Typography> */}
                 </Toolbar>
             </AppBar>
         </Container>
