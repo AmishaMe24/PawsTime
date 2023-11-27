@@ -1,17 +1,20 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useContext, useState } from "react";
-import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import React, { } from "react";
+import { useAuthContext } from "./hooks/useAuthContext.js";
 
 // pages & components
 
 
 import Header from "./components/Header/Header";
 import LoginForm from "./components/Login&SignUp/LoginForm";
+
 import SignUp from "./components/Login&SignUp/SignUp";
 import Home from "./components/HomePage/Home/Home";
 
 
 function App() {
+  const { user } = useAuthContext();
+
   return (
     <div className="App">
       <Router>

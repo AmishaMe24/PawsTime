@@ -1,8 +1,12 @@
 import express from 'express';
 import appointMentSchema from '../models/appointmentModel.js';
+import requireAuth from '../middlewares/requireAuth.js';
 import {CreateAppointMent, GetAppointments, GetAppointment, DeleteAppointment, UpdateAppointment} from '../controllers/appointmentController.js';
 
 const router = express.Router();
+
+// require auth for all appointment routes
+router.use(requireAuth)
 
 // GET all appointments
 router.get('/', GetAppointments)

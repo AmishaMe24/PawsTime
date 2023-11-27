@@ -154,3 +154,4 @@ const SignUp = ({ handleResponse }) => {
 };
 
 export default SignUp;
+
