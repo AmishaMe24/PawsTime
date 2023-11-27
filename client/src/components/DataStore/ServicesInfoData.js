@@ -5,13 +5,13 @@ import vet from '../images/vet2.jpeg';
 const servicesInfoData = [
     {
         name: 'Grooming',
-        description: 'Lorem ipsum consectetur adipisicing elit. dolor sit amet consectetur adipisicing elit. Obcaecati, ratione!',
+        description: '"Pamper your pets with our curated selection of premium products, ensuring tail-wagging joy and purr-fect contentment.',
         img: grooming,
         size: '500px'
     },
     {
         name: 'Vet Care',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati consectetur adipisicing elit. ratione!',
+        description: "Your pet's well-being is our priority; compassionate veterinary care tailored to ensure a lifetime of health and happiness.",
         img: vet
     },
     // {

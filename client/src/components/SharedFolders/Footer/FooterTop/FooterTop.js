@@ -44,45 +44,43 @@ const FooterTop = () => {
                 <Grid className={classes.list} item xs={6} sm={3}>
                     <h3>About Us</h3>
                     <ul>
-                        <li>Emergency Dental Care</li>
-                        <li>Check Up</li>
-                        <li>Treatement of Personal Diseases</li>
-                        <li>Tooth Extraction</li>
-                        <li>Check Scheduling</li>
+                        <li>Our Story</li>
+                        <li>Meet the Team</li>
+                        <li>Testimonials</li>
+                        <li>Careers</li>
+                        <li>Contact Us</li>
                     </ul>
                 </Grid>
                 <Grid className={classes.list} item xs={6} sm={3}>
                     <h3>Services</h3>
                     <ul>
-                        <li>Emergency Dental Care</li>
-                        <li>Check Up</li>
-                        <li>Treatement of Personal Diseases</li>
-                        <li>Tooth Extraction</li>
-                        <li>Check Scheduling</li>
-                        <li>Check Up</li>
-                        <li>Check Up</li>
+                        <li>Professional Grooming</li>
+                        <li>Veterinary Care</li>
+                        <li>Pet Boarding</li>
+                        <li>Dog Training Classes</li>
+                        <li>Pet Nutrition Consultations</li>
+                        <li>Emergency Pet Care</li>
+                        <li>Pet Adoption Events</li>
                     </ul>
                 </Grid>
                 <Grid className={classes.list} item xs={6} sm={3}>
-                    <h3>Services</h3>
+                    <h3>Pet Care Tips</h3>
                     <ul>
-                        <li>Emergency Dental Care</li>
-                        <li>Check Up</li>
-                        <li>Treatement of Personal Diseases</li>
-                        <li>Tooth Extraction</li>
-                        <li>Check Scheduling</li>
-                        <li>Check Up</li>
-                        <li>Check Up</li>
+                        <li>Choosing the Right Pet</li>
+                        <li>Training and Behavior</li>
+                        <li>Health and Wellness</li>
+                        <li>Feeding Guidelines</li>
+                        <li>Fun Activities for Pets</li>
                     </ul>
                 </Grid>
                 <Grid className={classes.list} item xs={6} sm={3}>
-                    <h3>Our Address</h3>
-                    <p>New York - 101010 Hudson Yards</p>
+                    <h3>Our Location</h3>
+                    <p>123 Pet Street, Cityville</p>
                     <FacebookIcon />
                     <TwitterIcon />
                     <LinkedInIcon />
                     <br /> <br />
-                    <p>Call Now</p>
+                    <p>Contact Us</p>
                     <Button
                         variant="contained"
                         color="primary"
@@ -92,7 +90,7 @@ const FooterTop = () => {
                         }}
                         type="tel"
                     >
-                        +12587658425
+                        +1234567890
                     </Button>
                 </Grid>
             </Grid>
