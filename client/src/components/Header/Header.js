@@ -6,6 +6,7 @@ import { useAuthContext } from '../../hooks/useAuthContext.js';
 import "./Header.css";
 import Navbar from "../SharedFolders/Header/NavBar/NavBar";
 
+
 const Header = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
@@ -38,17 +39,15 @@ const Header = () => {
             <span className="text-logout">Welcome!</span>
             <span className="text-logout-1">{username}</span>
             <section className="hello-logout">
-            <section style={{display:'flex', flexDirection: 'column'}}>
+                <section style={{display:'flex', flexDirection:'column'}}>
                   <Navbar></Navbar>
-              </section>
-                  <section style={{display:'flex', flexDirection: 'column'}}>
-                    <button onClick={handleClick}>Logout</button>
-                
                   </section>
-              
-            
-            </section>
-          </section>
+                <section style={{display:'flex', flexDirection:'column'}}>
+                <button onClick={handleClick}>Logout</button>
+              </section>
+  
+        </section>
+        </section>
         )}
       </header>
     </div>

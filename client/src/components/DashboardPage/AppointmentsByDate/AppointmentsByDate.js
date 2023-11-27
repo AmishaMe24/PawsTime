@@ -20,7 +20,7 @@ const AppointmentList = () => {
     //     fetch('http://localhost:5000/appointmentsByDate', {
     //         method: 'POST',
     //         headers: { 'Content-type': 'application/json' },
-    //         // body: JSON.stringify({ date: selectedDate.toDateString(), email: loggedInUser.email })
+    //         body: JSON.stringify({ date: selectedDate.toDateString(), email: loggedInUser.email })
     //     })
     //         .then(res => res.json())
     //         .then(data => setAppointments(data))
@@ -44,7 +44,7 @@ const AppointmentList = () => {
                 </div>
                 {
                     appointments.length === 0
-                        ? <small>There is no appointments on this date</small>
+                        ? <small>There are no appointments on this date</small>
                         : <AppointmentsTable appointments={appointments}></AppointmentsTable>
                 }
             </Grid>
