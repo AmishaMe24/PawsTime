@@ -2,13 +2,18 @@ import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import { useLocation } from 'react-router-dom';
 
 export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
-  const navigate = useNavigate();
   const baseUrl = 'http://localhost:4000';
+  const history = useNavigate();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: "/" } };
+
+
 
   const login = async (user) => {
     setIsLoading(true);
@@ -39,7 +44,8 @@ export const useLogin = () => {
         text: "Successfully Sign In",
         timer: 2000,
       });
-      navigate("/");
+      //navigate("/");
+      history(from);
     }
   };
 

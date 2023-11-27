@@ -1,8 +1,10 @@
 import { Backdrop, Button, Fade, makeStyles, Modal } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../App';
+import swal from 'sweetalert';
+import { useAuthContext } from '../../../hooks/useAuthContext';
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -20,39 +22,51 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const BookingFormModal = ({ openModal, handleModalClose, selectedDepartment, visitngHour, selectedDate }) => {
+const BookingFormModal = ({ openModal, handleModalClose, title, time, selectedDate }) => {
     const classes = useStyles();
 
-    const history = useHistory();
+    const history = useNavigate();
 
     const { setAppointment } = useContext(UserContext);
+    const { user } = useAuthContext();
 
-    // Update appoinment state from input form data
-    const { register, errors, handleSubmit } = useForm();
-    const onSubmit = data => {
-        const updatedFromData = { 
+    // Update appointment state from input form data
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm();
+    const onSubmit = async data => {
+        const updatedFromData = {
             ...data,
-            dept: selectedDepartment,
-            schedule: visitngHour,
-            action: false,
-            date: selectedDate.toDateString()
+            serviceType: title,
+            appointmentTime: time,
+            appointmentDate: selectedDate.toDateString(),
+            user_id: '60a7c4b5a1c6a71b7c4b5a1c',
+            doctor_id: '60a7c4b5a1c6a71b7c4b5a1c',
         }
 
-        fetch('http://localhost:5000/addAppointment', {
-            method: 'POST',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify(updatedFromData)
-        })
-        .then(res => res.json())
-        .then(success => {
-            if(success) {
-                setAppointment(updatedFromData);
-                handleModalClose();
-                alert('Appoinment created successfully');
-                history.push('/dashboard/appointments');
-            }
-        })
-    }
+        const response = await fetch('http://localhost:4000/api/appointments', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedFromData),
+        });
+        const json = await response.json();
+
+        if (!response.ok) {
+        }
+        if (response.ok) {
+            setAppointment(updatedFromData);
+            handleModalClose();
+            swal({
+                icon: 'success',
+                text: 'Successfully Appointment Submitted',
+                timer: 23
+            })
+
+        }
+    };
 
     return (
         <Modal
@@ -76,7 +90,7 @@ const BookingFormModal = ({ openModal, handleModalClose, selectedDepartment, vis
                             textAlign: 'center'
                         }}
                     >
-                        {selectedDepartment}
+                        {title}
                     </h2>
                     <form
                         className="contact-form"
@@ -96,71 +110,46 @@ const BookingFormModal = ({ openModal, handleModalClose, selectedDepartment, vis
                         } */}
                         <p style={{ textAlign: 'center' }}>
                             Your appointment on
-                            <strong> {visitngHour}</strong>
+                            <strong> {time}</strong>
                             <br />
                             at
                             <strong> {selectedDate.toDateString()}
                             </strong>
                         </p>
-                        <input
-                            name="name"
-                            type="text"
-                            ref={register({ required: true })}
-                            placeholder="Your Name*"
-                        />
+                        <input type="text" {...register("username", { required: true })} placeholder="Your Name" />
                         {
-                            errors.name
+                            errors.username
                             && <span className="error">Name is required</span>
                         }
-                        <input
-                            name="email"
-                            type="email"
-                            ref={register({ required: true })}
-                            placeholder="Email Address*"
-                        />
+                        <input type="text" {...register("email", { required: true })} placeholder="Email" />
                         {
                             errors.email
                             && <span className="error">Email is required</span>
                         }
-                        <input
-                            name="phone"
-                            type="number"
-                            ref={register({ required: true })}
-                            placeholder="Phone Number*"
-                        />
+                        <input type="text" {...register("phone", { required: true })} placeholder="Phone Number" />
                         {
                             errors.phone
                             && <span className="error">Phone number is required</span>
                         }
-                        <select name="gender" ref={register({ required: true })}>
-                            <option disabled defaultValue >Select your gender</option>
-                            <option defaultValue="female">Male</option>
-                            <option defaultValue="male">Female</option>
-                            <option defaultValue="other">Other</option>
+                        <select {...register("pet", { required: true })}>
+                            <option disabled={true} value="Not set">Select Pet</option>
+                            <option value="Dog">Dog</option>
+                            <option value="Cat">Cat</option>
+                            <option value="Not set">Other</option>
                         </select>
                         {
-                            errors.gender
-                            && <span className="error">Your age is required</span>
+                            errors.pet
+                            && <span className="error">Your pet type is required</span>
                         }
-                        <input
-                            name="age"
-                            type="number"
-                            ref={register({ required: true })}
-                            placeholder="Your age*"
-                        />
+                        <input {...register("age", { required: true })} placeholder="Pet's Age" type="number" />
                         {
                             errors.age
-                            && <span className="error">Your age is required</span>
+                            && <span className="error">Pet's age is required</span>
                         }
-                        <input
-                            name="weight"
-                            type="number"
-                            ref={register({ required: true })}
-                            placeholder="Your weight*"
-                        />
+                        <input {...register("weight", { required: true })} placeholder="Weight" type="number" />
                         {
                             errors.weight
-                            && <span className="error">Your weight is required</span>
+                            && <span className="error">Pet's weight is required</span>
                         }
                         {/* <input
                             disabled
