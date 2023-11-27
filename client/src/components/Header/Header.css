@@ -22,5 +22,7 @@
   
   .hello-logout {
     margin-bottom: 30px;
+    display: flex;
+    gap: '0.2em';
   }
   

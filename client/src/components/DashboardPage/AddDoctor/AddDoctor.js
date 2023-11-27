@@ -12,7 +12,7 @@ const AddDoctor = () => {
         formData.append('total', totalData)
         formData.append('file', data.file[0]);
         // console.log('data', data);
-        // console.log(typeof formData);
+        console.log(typeof formData);
         fetch('http://localhost:5000/addDoctor', {
             method: 'POST',
             body: formData
@@ -28,7 +28,7 @@ const AddDoctor = () => {
 
     return (
         <div>
-            <form
+            {/* <form
                 className="contact-form"
                 onSubmit={handleSubmit(onSubmit)}
             >
@@ -36,7 +36,7 @@ const AddDoctor = () => {
                 <input
                     name="name"
                     type="text"
-                    ref={register({ required: true })}
+                    // ref={register({ required: true })}
                     placeholder="Your Name*"
                 />
                 {
@@ -46,7 +46,7 @@ const AddDoctor = () => {
                 <input
                     name="email"
                     type="email"
-                    ref={register({ required: true })}
+                    // ref={register({ required: true })}
                     placeholder="Email Address*"
                 />
                 {
@@ -56,7 +56,7 @@ const AddDoctor = () => {
                  <input
                     name="department"
                     type="text"
-                    ref={register({ required: true })}
+                    // ref={register({ required: true })}
                     placeholder="Your Department*"
                 />
                 {
@@ -66,7 +66,7 @@ const AddDoctor = () => {
                 <input
                     name="phone"
                     type="number"
-                    ref={register({ required: true })}
+                    // ref={register({ required: true })}
                     placeholder="Phone Number*"
                 />
                 {
@@ -76,7 +76,7 @@ const AddDoctor = () => {
                 <input
                     name="age"
                     type="number"
-                    ref={register({ required: true })}
+                    // ref={register({ required: true })}
                     placeholder="Your age*"
                 />
                 {
@@ -86,7 +86,7 @@ const AddDoctor = () => {
                 <input
                     name="file"
                     type="file"
-                    ref={register({ required: true })}
+                    // ref={register({ required: true })}
                     placeholder="Your weight*"
                 />
                 {
@@ -107,7 +107,8 @@ const AddDoctor = () => {
                 >
                     SEND
                         </Button>
-            </form>
+            </form> */}
+            <p>Add doctor</p>
         </div>
     );
 };

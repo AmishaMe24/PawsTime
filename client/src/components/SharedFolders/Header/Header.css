@@ -1,7 +1,7 @@
 .header-home {
     height:730px;
     position:relative;
-    background-image: url('https://i.ibb.co/xGczynr/Mask-Group-2.png');
+    /* background-image: url('https://i.ibb.co/xGczynr/Mask-Group-2.png'); */
     background-size: cover,
 }
 .header-home::after, .header-home::before {
@@ -11,13 +11,13 @@
     top: 0;
     width: 33%;
     right: 0;
-    background-color: #3A4256;
+    /* background-color: #3A4256; */
     z-index: -1;
 }
 
 .header-appointment {
     height:730px;
     position:relative;
-    background-image: url('https://i.ibb.co/xGczynr/Mask-Group-2.png');
+    /* background-image: url('https://i.ibb.co/xGczynr/Mask-Group-2.png'); */
     background-size: cover,
 }

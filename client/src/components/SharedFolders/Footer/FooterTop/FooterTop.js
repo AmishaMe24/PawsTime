@@ -16,9 +16,11 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: '-2.5rem'
         },
         '& h3': {
-            color: '#1CC7C1',
+            // color: '#1CC7C1',
+            color: "white",
             fontWeight: 'bold', 
-            marginBottom: '2rem'
+            marginBottom: '2rem',
+            fontFamily:'initial'
         },
         '& svg': {
             fontSize: '3rem',
@@ -26,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
             marginRight: '5px',
             borderRadius: '5rem',
             padding: '5px',
-            color: '#1CC7C1',
+            color: 'white',
             cursor: 'pointer',
             '&:hover': {
                 color: 'white',
@@ -85,7 +87,7 @@ const FooterTop = () => {
                         variant="contained"
                         color="primary"
                         style={{
-                            backgroundImage: 'linear-gradient(to right, #16D39D, #10CFE7)',
+                            backgroundImage: 'linear-gradient(to right, #F0D153, #05638d)',
                             color: 'white',
                         }}
                         type="tel"
