@@ -40,7 +40,7 @@ const BookingCard = ({ selectedDate, list: {title, time, space} }) => {
                     onClick={handleModalOpen}
                     variant="contained"
                     style={{
-                        backgroundImage: 'linear-gradient(to right, #16D39D, #10CFE7)',
+                        backgroundImage: 'linear-gradient(to right, #05638d, #05638d)',
                         color: 'white'
                     }}
                 >

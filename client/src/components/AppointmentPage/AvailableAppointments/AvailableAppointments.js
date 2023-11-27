@@ -8,7 +8,7 @@ const AvailableAppointments = ({ selectedDate }) => {
 
     return (
         <Container style={{ textAlign: 'center' }}>
-            <h2 style={{ color: '#1cc7c1', marginTop: '5rem' }}>Available Appointments on {selectedDate.toDateString()} </h2>
+            <h2 style={{ color: '#05638d', marginTop: '5rem' }}>Available Appointments on {selectedDate.toDateString()} </h2>
             <Grid container spacing={1} style={{ margin: '5rem' }}>
                 {
                     availableAppointmentLists.map(list =>

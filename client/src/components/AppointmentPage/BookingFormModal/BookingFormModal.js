@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import swal from 'sweetalert';
 import { useAuthContext } from '../../../hooks/useAuthContext';
+import "../../HomePage/ContactUs/ContactUs.css";
+
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -61,7 +63,7 @@ const BookingFormModal = ({ openModal, handleModalClose, title, time, selectedDa
             handleModalClose();
             swal({
                 icon: 'success',
-                text: 'Successfully Appointment Submitted',
+                text: 'Successfully Booked Appointment',
                 timer: 23
             })
 
@@ -86,7 +88,7 @@ const BookingFormModal = ({ openModal, handleModalClose, title, time, selectedDa
                     <h2
                         id="transition-modal-title"
                         style={{
-                            color: '#1CC7C1',
+                            color: '#05638d',
                             textAlign: 'center'
                         }}
                     >
@@ -168,7 +170,7 @@ const BookingFormModal = ({ openModal, handleModalClose, title, time, selectedDa
                             type="submit"
                             variant="contained"
                             style={{
-                                backgroundImage: 'linear-gradient(to right, #16D39D, #10CFE7)',
+                                backgroundImage: 'linear-gradient(to right, #05638d, #05638d)',
                                 color: 'white',
                                 width: 'fit-content',
                                 textAlign: 'center',

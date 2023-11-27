@@ -1,16 +1,19 @@
-import { Link } from 'react-router-dom'
+// Header.js
+import { Link } from 'react-router-dom';
 import '../../assets/css/Header.css';
 import { useLogout } from '../../hooks/useLogout.js';
 import { useAuthContext } from '../../hooks/useAuthContext.js';
+import "./Header.css";
 
 const Header = () => {
-
   const { logout } = useLogout();
   const { user } = useAuthContext();
 
   const handleClick = () => {
     logout();
   }
+  const username = user.email.split('@')[0];
+
 
   return (
     <div>
@@ -19,7 +22,7 @@ const Header = () => {
           <Link to="/" style={{ margin: '0', padding: '0' }}>
             <img
               src={require('../../assets/images/image-removebg-preview.png')}
-              alt="Another Bookstore Logo"
+              alt="Pet Peaves Logo"
               width="140px"
               height="140px"
             />
@@ -32,19 +35,14 @@ const Header = () => {
         </section>
         {user && (
           <section className="nav-container">
-            <span>{user.email}</span>
+            <span className="text-logout">Welcome!</span>
+            <span className="text-logout-1">{username}</span>
             <section className="hello-logout">
-              <button className="logout-button" onClick={handleClick}>Logout</button>
-            </section>
-            <section className="header-navigation-to-services">
-
+              <button onClick={handleClick}>Logout</button>
             </section>
           </section>
         )}
-
       </header>
-
-
     </div>
   );
 }
