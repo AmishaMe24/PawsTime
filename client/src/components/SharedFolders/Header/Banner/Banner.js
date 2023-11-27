@@ -51,7 +51,7 @@ const Banner = ({ selectedDate, handleAppointmentDate }) => {
                                 variant="contained"
                                 style={{
                                     fontFace : 'bold',
-                                    backgroundImage: 'linear-gradient(to right, #F0D153, #05638d)',
+                                    backgroundImage: 'linear-gradient(to right, #05638d, #05638d)',
                                     color: 'white',
                                     fontSize: '18px'
                                 }}

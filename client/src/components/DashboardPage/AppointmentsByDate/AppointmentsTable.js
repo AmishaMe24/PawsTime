@@ -9,7 +9,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Button } from '@material-ui/core';
 
-
 const useStyles = makeStyles({
     table: {
         minWidth: 650,
@@ -19,9 +18,13 @@ const useStyles = makeStyles({
     },
 });
 
-
 const AppointmentsTable = ({ appointments }) => {
     const classes = useStyles();
+
+    const getButtonStyle = (action) => ({
+        backgroundImage: `linear-gradient(to right, ${action ? '#4CAF50' : '#FF0000'}, ${action ? '#4CAF50' : '#FF0000'})`,
+        color: 'white'
+    });
 
     return (
         <TableContainer component={Paper}>
@@ -42,11 +45,8 @@ const AppointmentsTable = ({ appointments }) => {
                             <TableCell align="center">{appointment.schedule}</TableCell>
                             <TableCell align="center">
                                 <Button
-                                variant="contained"
-                                style={{
-                                    backgroundImage: 'linear-gradient(to right, #16D39D, #10CFE7)',
-                                    color: 'white'
-                                }}
+                                    variant="contained"
+                                    style={getButtonStyle(appointment.action)}
                                 >
                                     {appointment.action ? 'Visited' : 'Not Visited'}
                                 </Button>
