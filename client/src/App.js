@@ -3,13 +3,9 @@ import React, { } from "react";
 import { useAuthContext } from "./hooks/useAuthContext.js";
 
 // pages & components
-
-
+import Home from "./components/HomePage/Home/Home";
 import Header from "./components/Header/Header";
 import LoginForm from "./components/Login&SignUp/LoginForm";
-
-import SignUp from "./components/Login&SignUp/SignUp";
-import Home from "./components/HomePage/Home/Home";
 
 
 function App() {
@@ -20,9 +16,8 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<LoginForm />} />
-          <Route path="/Home" element={<Home />} />
-          {/* <Route path = "/dashboard" element = {<Dashboard />} /> */}
+          <Route path="/" element={user ? <Home /> : <Navigate to="/login" />}/>
+          <Route path="/login" element={!user ? <LoginForm /> : <Navigate to="/" />} />
           <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
       </Router>
