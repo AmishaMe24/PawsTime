@@ -9,7 +9,7 @@ const Footer = () => {
             <Container style={{ margin: '0 auto', padding: '5rem' }}>
                 <FooterTop />
                 <div style={{ textAlign: 'center', marginTop: '5rem' }}>
-                    Copyright {new Date().getFullYear()}. Developed by <a href="https://github.com/bdmostafa" style={{ color: '#1CC7C1' }}>Mostafa</a> All Right Reserved.
+                    Copyright {new Date().getFullYear()}.  All Rights Reserved.
             </div>
             </Container>
         </div>

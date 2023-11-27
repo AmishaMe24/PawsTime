@@ -17,9 +17,9 @@ const Home = () => {
             <Header />
             <Services />
             <FeaturedService />
-            <MakeAppointment />
-            <ReviewsCard />
-            <Blogs />
+            {/* <MakeAppointment /> */}
+            {/* <ReviewsCard /> */}
+            {/* <Blogs /> */}
             <OurDoctors />
             {/* <ContactUs /> */}
             <Footer />

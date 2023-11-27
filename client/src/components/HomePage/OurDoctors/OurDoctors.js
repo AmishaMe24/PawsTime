@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -21,6 +22,11 @@ const useStyles = makeStyles({
 const OurDoctors = () => {
     const classes = useStyles();
     const [doctors, setDoctors] = useState([]);
+    useEffect(() => {
+        // Fetch data or set the data directly from the import
+        setDoctors(doctorsInfo);
+    }, []); // The empty dependency array ensures that this effect runs only once, similar to componentDidMount
+
 
     // useEffect(() => {
     //     fetch('http://localhost:5000/doctors')
@@ -30,19 +36,18 @@ const OurDoctors = () => {
     // doctors[0] && console.log(doctors[0].image)
     return (
         <Container align="center">
-            <h4 style={{ color: '#15D1C5', fontWeight: 'bold', margin: '3rem' }}>OUR DOCTORS</h4>
-            <Box display="flex" justifyContent="center" m={3} p={1}>
-                {
-                    doctors.map((doctor, idx) =>
-                        <Box key={idx} p={1}>
+            <h4 style={{ color: '#05638d', fontWeight: 'bold', margin: '3rem' }}>OUR DOCTORS</h4>
+            <Grid container spacing={3} justifyContent="center">
+                {doctors.map((doctor, idx) => (
+                    <Grid key={idx} item xs={12} sm={6} md={4} lg={3}>
+                        <Box p={1}>
                             <Card className={classes.root}>
                                 <CardActionArea>
                                     <CardMedia
                                         component="img"
                                         alt={doctor.name}
                                         height="100%"
-                                        // image={doctor.image.img}
-                                        image={`data:image/png;base64,${doctor.image.img}`}
+                                        image={doctor.img}
                                         title={doctor.name}
                                     />
                                     <CardContent>
@@ -57,12 +62,9 @@ const OurDoctors = () => {
                                 </CardActionArea>
                             </Card>
                         </Box>
-                    )
-                }
-
-
-
-            </Box>
+                    </Grid>
+                ))}
+            </Grid>
         </Container>
     );
 };
