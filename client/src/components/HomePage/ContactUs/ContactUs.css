@@ -1,0 +1,43 @@
+.contact-area{
+    position: relative;
+    margin-top: 5rem;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .7)), url(https://i.ibb.co/wdRfrqb/Mask-Group-1.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+    display: flex;
+    padding: 5rem;
+    color: white
+}
+
+.contact-form{
+    margin-top: 1rem;
+    display: inline-grid;
+}
+
+.contact-form input, .contact-form select{
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: .3rem;
+    width: 30rem;
+    border: none;
+    padding: .75rem;
+    border: .5px solid deepskyblue;
+}
+
+.error {
+    color: red;
+    margin-top: -1rem;
+    text-align: start;
+    margin-bottom: 1rem;
+}
+
+.submit-btn {
+    background-image: linear-gradient(to right, #16D39D, #10CFE7);
+    color: white;
+    margin-top: 20px;
+    width: 30%;
+    /* margin: auto;
+    margin-right: auto; */
+}
