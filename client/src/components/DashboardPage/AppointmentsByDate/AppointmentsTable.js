@@ -22,7 +22,7 @@ const AppointmentsTable = ({ appointments }) => {
     const classes = useStyles();
 
     const getButtonStyle = (action) => ({
-        backgroundImage: `linear-gradient(to right, ${action ? '#4CAF50' : '#FF0000'}, ${action ? '#4CAF50' : '#FF0000'})`,
+        backgroundImage: `linear-gradient(to right, ${action === 'Visited' ? '#4CAF50' : '#FF0000'}, ${action === 'Visited' ? '#4CAF50' : '#FF0000'})`,
         color: 'white'
     });
 
@@ -31,24 +31,32 @@ const AppointmentsTable = ({ appointments }) => {
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Name</TableCell>
-                        <TableCell align="center">Schedule</TableCell>
-                        <TableCell align="center">Action</TableCell>
+                        <TableCell>User Name</TableCell>
+                        <TableCell align="center">Service</TableCell>
+                        <TableCell align="center">Pet</TableCell>
+                        <TableCell align="center">Date</TableCell>
+                        <TableCell align="center">Contact</TableCell>
+                        <TableCell align="center">Doctor</TableCell>
+                        <TableCell align="center">Status</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {appointments.map((appointment) => (
                         <TableRow key={appointment._id}>
                             <TableCell component="th" scope="row">
-                                {appointment.name}
+                                {appointment.username}
                             </TableCell>
-                            <TableCell align="center">{appointment.schedule}</TableCell>
+                            <TableCell align="center">{appointment.serviceType}</TableCell>
+                            <TableCell align="center">{appointment.pet}</TableCell>
+                            <TableCell align="center">{appointment.appointmentDate + appointment.appointmentTime}</TableCell>
+                            <TableCell align="center">{appointment.phone}</TableCell>
+                            <TableCell align="center">{appointment.doctor}</TableCell>
                             <TableCell align="center">
                                 <Button
                                     variant="contained"
-                                    style={getButtonStyle(appointment.action)}
+                                    style={getButtonStyle(appointment.status)}
                                 >
-                                    {appointment.action ? 'Visited' : 'Not Visited'}
+                                    {appointment.status}
                                 </Button>
                             </TableCell>
                         </TableRow>

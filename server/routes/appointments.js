@@ -1,7 +1,7 @@
 import express from 'express';
 import appointMentSchema from '../models/appointmentModel.js';
 import requireAuth from '../middlewares/requireAuth.js';
-import { CreateAppointMent, GetAppointments, GetAppointment, DeleteAppointment, UpdateAppointment, GetAvailableTimeSlots } from '../controllers/appointmentController.js';
+import { CreateAppointMent, GetAppointments, GetAppointment, DeleteAppointment, UpdateAppointment, GetAvailableTimeSlots, GetAppointmentByDate } from '../controllers/appointmentController.js';
 
 const router = express.Router();
 
@@ -25,6 +25,9 @@ router.patch('/:id', UpdateAppointment);
 
 // Get Available time slots
 router.post('/getAvailableTimeSlots', GetAvailableTimeSlots);
+
+// get appointment by date
+router.post('/appointmentByDate', GetAppointmentByDate);
 
 
 export default router;
