@@ -3,6 +3,7 @@ import Navbar from './NavBar/NavBar';
 import './Header.css';
 import Banner from './Banner/Banner';
 import { useLocation } from 'react-router-dom';
+import  img from "../../images/opaque-happy-dog.webp"
 
 
 const Header = ({ selectedDate, handleAppointmentDate }) => {

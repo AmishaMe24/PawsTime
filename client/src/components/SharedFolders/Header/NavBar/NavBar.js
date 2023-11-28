@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         background: 'transparent',
         boxShadow: 'none',
+        padding: '0.001rem'
     },
     title: {
         marginLeft: 'auto',
@@ -39,9 +40,9 @@ const Header = () => {
                     <Typography variant="h6" >
                         <Link to="/dashboard">Dashboard</Link>
                     </Typography>
-                    {/* <Typography variant="h6" >
-                        <Link to="/dashboard">Admin</Link>
-                    </Typography> */}
+                    <Typography variant="h6" >
+                        <Link to="/dashboard">Appointments</Link>
+                    </Typography>
                     {/* <Typography variant="h6" >
                         <Link to="/">Blog</Link>
                     </Typography> */}

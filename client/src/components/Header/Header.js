@@ -24,8 +24,8 @@ const Header = () => {
             <img
               src={require('../../assets/images/image-removebg-preview.png')}
               alt="Pet Peaves Logo"
-              width="140px"
-              height="140px"
+              width="130px"
+              height="130px"
             />
           </Link>
           <Link to='/' style={{ textDecoration: 'none', color: 'white', display: 'inline-block', margin: '0', padding: '0' }}>
@@ -36,10 +36,13 @@ const Header = () => {
         </section>
         {user && (
           <section className="nav-container">
-            <span className="text-logout">Welcome!</span>
-            <span className="text-logout-1">{username}</span>
+            <section className = "hello-username" style={{display:"flex",flexDirection:"row",justifyContent:"flex-end",gap:"0.5em"}}>
+            <section className="text-logout" >Welcome!</section>
+            <section className="text-logout-1">{username}</section>
+            </section>
+          
             <section className="hello-logout">
-                <section style={{display:'flex', flexDirection:'column'}}>
+                <section style={{display:'flex', flexDirection:'column',marginRight:"5px"}}>
                   <Navbar></Navbar>
                   </section>
                 <section style={{display:'flex', flexDirection:'column'}}>

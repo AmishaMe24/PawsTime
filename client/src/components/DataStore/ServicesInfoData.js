@@ -5,7 +5,7 @@ import vet from '../images/vet2.jpeg';
 const servicesInfoData = [
     {
         name: 'Grooming',
-        description: '"Pamper your pets with our curated selection of premium products, ensuring tail-wagging joy and purr-fect contentment.',
+        description: 'Pamper your pets with our curated selection of premium products, ensuring tail-wagging joy and purr-fect contentment.',
         img: grooming,
         size: '500px'
     },

@@ -5,7 +5,9 @@ import BookingFormModal from '../BookingFormModal/BookingFormModal';
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 345,
-        minHeight: 250
+        minHeight: 250,
+        // margin:12,
+        marginRight:10
     }
 }));
 
