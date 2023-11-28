@@ -25,21 +25,13 @@ function App() {
           <Route path="/appointment" element={
             !user ? (
               <Navigate to="/login" />
-            ) : !user.isAdmin ? (
-              <Appointment />
-            ) : (
-              <Navigate to="/" />
-            )
-          } />
-          <Route path="/dashboard" element={
-            !user ? (
-              <Navigate to="/login" />
             ) : user.isAdmin ? (
-              <AppointmentsByDate />
-            ) : (
               <Navigate to="/" />
+            ) : (
+              <Appointment />
             )
           } />
+          <Route path="/dashboard" element={user ? <AppointmentsByDate /> : <Navigate to="/login" />} />
           <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
         <Footer />
