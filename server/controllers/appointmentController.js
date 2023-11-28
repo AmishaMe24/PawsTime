@@ -3,9 +3,21 @@ import mongoose from "mongoose";
 
 // get all appointments
 export const GetAppointments = async (req, res) => {
-  const appointments = await appointMentSchema.find({}).sort({ createdAt: -1 });
-
-  res.status(200).json(appointments);
+  try {
+    const user_id = req.user._id;
+    const isAdmin = req.user.isAdmin;
+    if (isAdmin) {
+      const appointments = await appointMentSchema.find({}).sort({ createdAt: -1 });
+      return res.status(200).json(appointments);
+    }
+    else {
+      const appointments = await appointMentSchema.find({ user_id: user_id }).sort({ createdAt: -1 });
+      return res.status(200).json(appointments);
+    }
+  }
+  catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 
 // get a single appointment
@@ -82,8 +94,6 @@ export const GetAvailableTimeSlots = async (req, res) => {
   const bookedSlots = bookedAppointments.map(appointment => appointment.appointmentTime);
   var allTimeSlots = [];
 
-  console.log('booked slots:', bookedSlots);
-
   if (serviceType === 'Veterinary') {
 
     const startHour = 9;
@@ -105,5 +115,23 @@ export const GetAvailableTimeSlots = async (req, res) => {
   }
   const availableTimeSlots = allTimeSlots.filter(slot => !bookedSlots.includes(slot))
   res.status(200).json(availableTimeSlots);
+}
+
+export const GetAppointmentByDate = async (req, res) => {
+  try {
+    const user_id = req.user._id;
+    const isAdmin = req.user.isAdmin;
+    const appointmentDate = req.body.appointmentDate;
+    if (isAdmin) {
+      const appointments = await appointMentSchema.find({ appointmentDate: appointmentDate });
+      res.status(200).json(appointments);
+    } else {
+      const appointments = await appointMentSchema.find({ appointmentDate: appointmentDate, user_id: user_id });
+      res.status(200).json(appointments);
+    }
+  }
+  catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 }
 

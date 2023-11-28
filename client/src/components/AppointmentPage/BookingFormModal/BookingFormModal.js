@@ -97,7 +97,7 @@ const BookingFormModal = ({ openModal, handleModalClose, serviceType, selectedDa
             ...data,
             serviceType: serviceType,
             appointmentDate: selectedDate.toDateString(),
-            doctor_id: '60a7c4b5a1c6a71b7c4b5a1c',
+            doctor: serviceType === 'Veterinary' ? 'Dr. Caudi' : 'Dr. Mostafa',
         }
 
         const response = await fetch('http://localhost:4000/api/appointments', {
@@ -122,6 +122,7 @@ const BookingFormModal = ({ openModal, handleModalClose, serviceType, selectedDa
                 timer: 2000
             });
             dispatch({ type: 'CREATE_APPOINTMENT', payload: json });
+            history('/dashboard');
         }
     };
 
@@ -156,18 +157,6 @@ const BookingFormModal = ({ openModal, handleModalClose, serviceType, selectedDa
                                 className="contact-form"
                                 onSubmit={handleSubmit(onSubmit)}
                             >
-                                {/* <input
-                            disabled
-                            name="time"
-                            type="text"
-                            ref={register({ required: true })}
-                            placeholder="Visiting Hour"
-                            defaultValue={visitngHour}
-                        />
-                        {
-                            errors.time
-                            && <span className="error">Visiting Hour is required</span>
-                        } */}
                                 <p style={{ textAlign: 'center' }}>
                                     Book Appointment on
                                     <strong> {selectedDate.toDateString()}
