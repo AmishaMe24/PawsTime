@@ -7,7 +7,7 @@
   --error: #e7195a;
 }
 body {
-  background: #f1f1f1;
+  background: #fff;
   margin: 0;
   font-family: "Poppins";
 }
@@ -31,3 +31,4 @@ header a {
   padding: 20px;
   margin: 0 auto;
 }
+

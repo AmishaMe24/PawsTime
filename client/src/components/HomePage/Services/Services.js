@@ -5,7 +5,8 @@ import servicesInfoData from '../../DataStore/ServicesInfoData';
 
 const Services = () => {
   return (
-    <Container align="center" style={{ marginTop: '5rem', width: '85%' }}>
+    <div style={{backgroundColor:"white"}}>
+    <Container align="center" style={{ marginTop: '1rem', width: '85%'}}>
       <h4 style={{ color: '#05638d',fontFamily:"initial",fontWeight: 'bold',fontSize:"45px" }}>Services</h4>
       {/* <h2 style={{ color: '#F0D153', fontWeight: 'bold' }}>Services We Provide</h2> */}
         <Grid container justifyContent="center" spacing={4}>
@@ -20,6 +21,7 @@ const Services = () => {
           ))}
         </Grid>
     </Container>
+    </div>
   );
 };
 

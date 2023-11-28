@@ -8,21 +8,30 @@
     font-size: 19px;
     font-weight: 600;
     color: #F0D153;
-    margin-top: 20px;
-    margin-right: 10px;
+    /* margin-top: 20px; */
+    /* margin-right: 2px; */
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-end;
   }
   
   .text-logout-1 {
     font-size: 19px;
     font-weight: 600;
-    margin-bottom: 10px;
-    margin-right: 10px;
+    /* margin-bottom: 10px; */
+    /* margin-right: 10px; */
     color: #F0D153;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-end;
   }
   
   .hello-logout {
     margin-bottom: 30px;
     display: flex;
-    gap: '0.2em';
+    gap: '30px';
+    /* align-items: center; */
+    flex-direction: flex-end
+    
   }
   

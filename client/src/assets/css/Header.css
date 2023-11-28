@@ -30,7 +30,7 @@ header {
     justify-content: space-between;
     /* padding: 0.1em;
     gap: 1em; */
-    /* height: 100px;  */
+    /* height: 130px;  */
     /* align-items: center;  */
     /* flex-direction:row;
     max-width: 100%; */
@@ -214,6 +214,7 @@ section button {
     flex-direction: row;
     /*border:1px solid red;*/
     justify-content: flex-end;
+    gap:"2em"
 
 }
 
