@@ -34,7 +34,7 @@ export const useSignup = () => {
       setIsLoading(false);
       swal({
         icon: "success",
-        text: "Successfully Sign Up",
+        text: "Successfully Signed Up",
         timer: 2000,
     });
     }

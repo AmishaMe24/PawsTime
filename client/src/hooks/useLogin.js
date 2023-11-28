@@ -41,7 +41,7 @@ export const useLogin = () => {
       setIsLoading(false);
       swal({
         icon: "success",
-        text: "Successfully Sign In",
+        text: "Successfully Signed In",
         timer: 2000,
       });
       //navigate("/");

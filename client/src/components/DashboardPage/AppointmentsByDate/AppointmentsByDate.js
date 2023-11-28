@@ -1,54 +1,92 @@
-import { Grid } from '@material-ui/core';
-import React, { useContext, useEffect, useState } from 'react';
+import { Grid, Typography } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { UserContext } from '../../../App';
 import './AppointmentsByDate.css';
 import AppointmentsTable from './AppointmentsTable';
+import { useAuthContext } from '../../../hooks/useAuthContext.js';
 
 const AppointmentList = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [appointments, setAppointments] = useState([]);
-    // const { loggedInUser } = useContext(UserContext);
-    // to do amisha
+    const { user } = useAuthContext();
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const handleAppointmentDate = (date) => {
         setSelectedDate(date);
     }
 
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/appointmentsByDate', {
-    //         method: 'POST',
-    //         headers: { 'Content-type': 'application/json' },
-    //         body: JSON.stringify({ date: selectedDate.toDateString(), email: loggedInUser.email })
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => setAppointments(data))
-    // }, [selectedDate])
+    useEffect(() => {
+        const fetchAppointments = async () => {
+            try {
+                setLoading(true);
+
+                const response = await fetch('http://localhost:4000/api/appointments/appointmentByDate',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-type': 'application/json',
+                            'Authorization': `Bearer ${user?.token}`
+                        },
+                        body: JSON.stringify({ appointmentDate: selectedDate.toDateString() })
+                    })
+                const appointmentRes = await response.json();
+
+                if (!response.ok) {
+                    setLoading(false);
+                    setError(appointmentRes.error);
+                }
+                if (response.ok) {
+                    setAppointments(appointmentRes);
+                }
+            } catch (error) {
+                setError('Error fetching available appointments:' + error.message);
+                setLoading(false);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (selectedDate && user) {
+            fetchAppointments();
+        }
+    }, [selectedDate, user]);
 
     return (
-        <>
-            <Grid item xs={12} sm={5}>
-                <h1 style={{ marginBottom: '5rem' }}>Appointment</h1>
-                <div>
-                    <Calendar
-                        onChange={handleAppointmentDate}
-                        value={selectedDate}
-                    />
-                </div>
-            </Grid>
-            <Grid item xs={12} sm={7}>
-                <div className="appointments-date-heading">
-                    <h2>Total Appointments {appointments.length}</h2>
-                    <h4>{selectedDate.toDateString()}</h4>
-                </div>
-                {
-                    appointments.length === 0
-                        ? <small>There are no appointments on this date</small>
-                        : <AppointmentsTable appointments={appointments}></AppointmentsTable>
-                }
-            </Grid>
-        </>
+        <div>
+            {user ? (
+                <>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} sm={4}>
+                            <h1 style={{ marginBottom: '5rem', marginLeft: '6rem', color: "rgb(5, 99, 141)", fontFamily: "initial" }}>Appointment Calendar</h1>
+                            <div style={{ marginBottom: '5rem', marginLeft: '4rem' }}>
+                                <Calendar
+                                    onChange={handleAppointmentDate}
+                                    value={selectedDate}
+                                />
+                                <br></br>
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <div className="appointments-date-heading">
+                                <h2 style={{ color: "rgb(5, 99, 141)", fontFamily: "initial" }}>Total Appointments: {appointments.length}</h2>
+                                <h3 style={{ color: "rgb(5, 99, 141)", fontFamily: "initial" }}>{selectedDate.toDateString()}</h3>
+                            </div>
+                            {
+                                appointments.length === 0
+                                    ? <Typography variant="body2" align="center">There are no appointments on this date</Typography>
+                                    : <AppointmentsTable appointments={appointments}></AppointmentsTable>
+                            }
+                        </Grid>
+                    </Grid>
+                    {error && <div className="error">{error}</div>}
+                    {loading && <div className="loading">Loading...</div>}
+                </>
+            ) : (
+                <p>Loading...</p>
+            )}
+        </div>
     );
 };
 

@@ -25,11 +25,7 @@ const UserSchema = new mongoose.Schema(
     isAdmin: {
       type: Boolean,
       default: false,
-    },
-    isDoctor: {
-      type: Boolean,
-      default: false,
-    },
+    }
   },
   { timestamps: true }
 );
@@ -39,8 +35,7 @@ UserSchema.statics.signup = async function (
   email,
   password,
   username,
-  isAdmin,
-  isDoctor
+  isAdmin
 ) {
   // validation
   if (!email || !password) {
@@ -66,8 +61,7 @@ UserSchema.statics.signup = async function (
     email,
     password: hash,
     username,
-    isAdmin,
-    isDoctor,
+    isAdmin
   });
   return user;
 };
