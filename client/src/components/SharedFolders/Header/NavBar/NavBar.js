@@ -41,7 +41,7 @@ const Header = () => {
                         <Link to="/dashboard">Dashboard</Link>
                     </Typography>
                     <Typography variant="h6" >
-                        <Link to="/dashboard">Appointments</Link>
+                        <Link to="/appointment">Appointments</Link>
                     </Typography>
                     {/* <Typography variant="h6" >
                         <Link to="/">Blog</Link>

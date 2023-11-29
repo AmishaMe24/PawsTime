@@ -11,7 +11,8 @@ import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 650,
+        width: 850,
+        overflowY: 'scroll',
         '& .MuiTableCell-head': {
             fontWeight: 'bold'
         }

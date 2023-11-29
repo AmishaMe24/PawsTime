@@ -13,7 +13,7 @@
 
 .contact-form{
     margin-top: 1rem;
-    display: inline-grid;
+    display: inline;
 }
 
 .contact-form input, .contact-form select{
@@ -24,6 +24,11 @@
     border: none;
     padding: .75rem;
     border: .5px solid deepskyblue;
+}
+
+.contact-form select{
+    width: 31.5rem;
+
 }
 
 .error {

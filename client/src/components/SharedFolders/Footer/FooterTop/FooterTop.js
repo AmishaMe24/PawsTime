@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
             // color: '#1CC7C1',
             color: "white",
             fontWeight: 'bold', 
-            marginBottom: '2rem',
+            marginBottom: '1rem',
             fontFamily:'initial'
         },
         '& svg': {
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
             border: '1px solid #1CC7C1',
             marginRight: '5px',
             borderRadius: '5rem',
-            padding: '5px',
+            padding: '2px',
             color: 'white',
             cursor: 'pointer',
             '&:hover': {
@@ -81,7 +81,7 @@ const FooterTop = () => {
                     <FacebookIcon />
                     <TwitterIcon />
                     <LinkedInIcon />
-                    <br /> <br />
+
                     <p>Contact Us</p>
                     <p>
                     +1234567890

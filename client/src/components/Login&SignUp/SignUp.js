@@ -136,7 +136,7 @@ const SignUp = ({ handleResponse }) => {
                 >
                     <p>
                         {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-                        Must Have Valid Email.
+                        Must Have a valid email ID.
                     </p>
                 </div>
 
@@ -147,7 +147,7 @@ const SignUp = ({ handleResponse }) => {
                 >
                     <p>
                         {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-                        Password Must Have atleast 8 character.
+                        Password Must Have atleast 8 characters.
                     </p>
                 </div>
 
@@ -173,7 +173,7 @@ const SignUp = ({ handleResponse }) => {
                 >
                     <p>
                         {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-                        Password Must Have uppercase and lower case.
+                        Password Must Have uppercase and lower case characters.
                     </p>
                 </div>
 
@@ -184,7 +184,7 @@ const SignUp = ({ handleResponse }) => {
                 >
                     <p>
                         {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-                        Password Must Have Number.
+                        Password Must Have atleast a Number.
                     </p>
                 </div>
             </div>

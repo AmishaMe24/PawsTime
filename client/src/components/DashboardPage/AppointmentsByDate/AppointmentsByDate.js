@@ -69,7 +69,7 @@ const AppointmentList = () => {
                                 <br></br>
                             </div>
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12} sm={8}>
                             <div className="appointments-date-heading">
                                 <h2 style={{ color: "rgb(5, 99, 141)", fontFamily: "initial" }}>Total Appointments: {appointments.length}</h2>
                                 <h3 style={{ color: "rgb(5, 99, 141)", fontFamily: "initial" }}>{selectedDate.toDateString()}</h3>

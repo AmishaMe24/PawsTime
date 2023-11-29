@@ -1,1 +1,1 @@
-export const baseUrl = "http://18.234.34.154:4000"
+export const baseUrl = "http://localhost:4000"
