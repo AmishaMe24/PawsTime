@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 import { useAuthContext } from '../../../hooks/useAuthContext.js';
 import { useAppointmentContext } from '../../../hooks/useAppointmentContext.js';
 import "../../HomePage/ContactUs/ContactUs.css";
+import { baseUrl } from "../../../config.js";
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -55,7 +56,7 @@ const BookingFormModal = ({ openModal, handleModalClose, serviceType, selectedDa
                 setLoading(true);
 
                 // Perform the API request to get available appointments based on selectedDate and service type
-                const response = await fetch(`http://localhost:4000/api/appointments/getAvailableTimeSlots`,
+                const response = await fetch(`${baseUrl}/api/appointments/getAvailableTimeSlots`,
                     {
                         method: 'POST',
                         headers: {
@@ -100,7 +101,7 @@ const BookingFormModal = ({ openModal, handleModalClose, serviceType, selectedDa
             doctor: serviceType === 'Veterinary' ? 'Dr. Caudi' : 'Dr. Mostafa',
         }
 
-        const response = await fetch('http://localhost:4000/api/appointments', {
+        const response = await fetch(`${baseUrl}/api/appointments`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

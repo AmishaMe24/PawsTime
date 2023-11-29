@@ -22,6 +22,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
   console.log(req.path, req.method);
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods',
+
+    'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
 
@@ -39,8 +44,9 @@ mongoose
     // listen to port
     app.listen(process.env.PORT, () => {
       console.log("listening for requests on port", process.env.PORT);
-    });
+});
   })
   .catch((err) => {
     console.log(err);
   });
+      
