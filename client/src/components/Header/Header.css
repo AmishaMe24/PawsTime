@@ -1,37 +1,39 @@
 .nav-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .text-logout {
-    font-size: 19px;
-    font-weight: 600;
-    color: #F0D153;
-    /* margin-top: 20px; */
-    /* margin-right: 2px; */
-    display:flex;
-    flex-direction:column;
-    justify-content: flex-end;
-  }
-  
-  .text-logout-1 {
-    font-size: 19px;
-    font-weight: 600;
-    /* margin-bottom: 10px; */
-    /* margin-right: 10px; */
-    color: #F0D153;
-    display:flex;
-    flex-direction:column;
-    justify-content: flex-end;
-  }
-  
-  .hello-logout {
-    margin-bottom: 30px;
-    display: flex;
-    gap: '30px';
-    /* align-items: center; */
-    flex-direction: flex-end
-    
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hello-username {
+  margin-top: 20px;
+  margin-left: 250px;
+}
+
+.text-logout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 19px;
+  font-weight: 600;
+  color: #f0d153;
+  /* margin-top: 20px; */
+  /* margin-right: 2px; */
+}
+
+.text-logout-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 19px;
+  font-weight: 600;
+  /* margin-bottom: 10px; */
+  /* margin-right: 10px; */
+  color: #f0d153;
+}
+
+.hello-logout {
+  margin-bottom: 30px;
+  display: flex;
+  gap: "30px";
+  /* align-items: center; */
+  flex-direction: flex-end;
+}

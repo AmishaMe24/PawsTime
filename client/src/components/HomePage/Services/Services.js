@@ -13,7 +13,7 @@ const Services = () => {
           {servicesInfoData.map((service, idx) => (
             <Grid key={idx} item xs={12} sm={6} md={6} lg={6}>
               <Box style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <img style={{ width: '150px' }} src={service.img} alt="" />
+                <img style={{ width: '290px' }} src={service.img} alt="" />
                 <h3 style={{ color: '#05638d', margin: '1.5rem',fontFamily:"initial",fontFace:"bold",fontSize:"23px" }}>{service.name}</h3>
                 <p>{service.description}</p>
               </Box>
