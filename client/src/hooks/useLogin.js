@@ -3,12 +3,12 @@ import { useAuthContext } from "./useAuthContext";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { useLocation } from 'react-router-dom';
+import { baseUrl } from "../config";
 
 export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
-  const baseUrl = 'http://localhost:4000';
   const history = useNavigate();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };

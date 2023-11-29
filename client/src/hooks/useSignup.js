@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 import swal from "sweetalert";
+import { baseUrl } from "../config";
 
 export const useSignup = () => {
-  const baseUrl = "http://localhost:4000";
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();

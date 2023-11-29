@@ -5,6 +5,7 @@ import 'react-calendar/dist/Calendar.css';
 import './AppointmentsByDate.css';
 import AppointmentsTable from './AppointmentsTable';
 import { useAuthContext } from '../../../hooks/useAuthContext.js';
+import { baseUrl } from "../../../config.js";
 
 const AppointmentList = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -22,7 +23,7 @@ const AppointmentList = () => {
             try {
                 setLoading(true);
 
-                const response = await fetch('http://localhost:4000/api/appointments/appointmentByDate',
+                const response = await fetch(`${baseUrl}/api/appointments/appointmentByDate`,
                     {
                         method: 'POST',
                         headers: {
