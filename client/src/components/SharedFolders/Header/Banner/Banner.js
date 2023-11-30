@@ -42,7 +42,8 @@ const Banner = ({ selectedDate, handleAppointmentDate }) => {
         <Grid className={classes.bannerArea} container spacing={3}>
           {path === "/appointment" && (
             <Grid item xs={12} md={5}>
-              <h1 style={{ marginBottom: "5rem" }}>Appointment</h1>
+              <h1 style={{ marginBottom: "2rem" , color: "#05638d",
+                  fontFamily: "initial" }}>Appointment</h1>
               <div>
                 <Calendar
                   onChange={handleAppointmentDate}
