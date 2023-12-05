@@ -21,7 +21,7 @@ describe('Login Component', () => {
     test('Login file uses "useState" hook', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('useState')).toBe(true);
-    });
+    });  
 
     test('Login file includes useForm from "react-hook-form"', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');

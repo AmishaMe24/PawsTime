@@ -17,7 +17,7 @@ describe('SocialSignUp Component', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('import React')).toBe(true);
     });
-
+  
     test('SocialSignUp file uses "useState" hook', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('useState')).toBe(true);

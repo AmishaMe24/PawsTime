@@ -17,7 +17,7 @@ describe('Home Component', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('import React')).toBe(true);
     });
-
+ 
     test('Home file contains multiple component imports', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('Footer')).toBe(true);

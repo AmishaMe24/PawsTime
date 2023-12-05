@@ -16,7 +16,7 @@ describe('AppointmentsTable Component', () => {
     test('AppointmentsTable component file is a regular file', () => {
         const fileStats = fs.statSync(filePath);
         expect(fileStats.isFile()).toBe(true);
-    });
+    });  
 
     test('AppointmentsTable component file has a .js extension', () => {
         expect(path.extname(filePath)).toBe('.js');

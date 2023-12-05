@@ -21,7 +21,7 @@ describe('Dashboard Component', () => {
     test('Dashboard component file has a .js extension', () => {
         expect(path.extname(filePath)).toBe('.js');
     });
-
+ 
     test('Dashboard component file contains "export default"', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('export default')).toBe(true);

@@ -11,7 +11,7 @@ describe('AppointmentByDate Component', () => {
     test('AppointmentByDate component file is not empty', () => {
         const fileStats = fs.statSync(filePath);
         expect(fileStats.size).toBeGreaterThan(0);
-    });
+    });  
 
     test('AppointmentByDate component file is a regular file', () => {
         const fileStats = fs.statSync(filePath);

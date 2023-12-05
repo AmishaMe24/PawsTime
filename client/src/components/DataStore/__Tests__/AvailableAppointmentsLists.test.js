@@ -11,7 +11,7 @@ describe('AvailableAppointmentLists Data', () => {
     test('availableAppointmentLists file is not empty', () => {
         const fileStats = fs.statSync(filePath);
         expect(fileStats.size).toBeGreaterThan(0);
-    });
+    }); 
 
     test('availableAppointmentLists file is a JavaScript file', () => {
         expect(path.extname(filePath)).toBe('.js');

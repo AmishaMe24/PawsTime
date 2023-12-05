@@ -21,7 +21,7 @@ describe('PatientsList Component', () => {
     test('PatientsList component file has a .js extension', () => {
         expect(path.extname(filePath)).toBe('.js');
     });
-
+ 
     test('PatientsList component file contains "export default"', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('export default')).toBe(true);

@@ -16,7 +16,7 @@ describe('ReviewsCard Component', () => {
     test('ReviewsCard file contains "React" import', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('import React')).toBe(true);
-    });
+    });  
 
     test('ReviewsCard file contains "makeStyles" import', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');

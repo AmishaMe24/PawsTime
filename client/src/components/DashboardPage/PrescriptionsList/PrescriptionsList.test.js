@@ -17,4 +17,4 @@ describe('PrescriptionsList Component', () => {
         const fileStats = fs.statSync(filePath);
         expect(fileStats.isFile()).toBe(true);
     });
-});
+}); 

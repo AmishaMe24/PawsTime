@@ -23,3 +23,4 @@ describe('ServicesInfoData Data File', () => {
         expect(fileContent.includes('export default servicesInfoData')).toBe(true);
     });
 });
+  

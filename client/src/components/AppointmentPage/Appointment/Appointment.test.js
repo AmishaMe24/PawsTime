@@ -13,3 +13,4 @@ describe('Appointment Component', () => {
         expect(fileStats.size).toBeGreaterThan(0);
     });
 });
+  

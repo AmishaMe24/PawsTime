@@ -21,5 +21,5 @@ describe('BlogsInfo Data File', () => {
     test('BlogsInfo file contains "export default"', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('export default blogsInfo')).toBe(true);
-    });
+    }); 
 });

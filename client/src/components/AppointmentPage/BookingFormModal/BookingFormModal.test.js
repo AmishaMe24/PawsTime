@@ -18,7 +18,7 @@ describe('BookingFormModal Component', () => {
         const fileStats = fs.statSync(filePath);
         expect(fileStats.size).toBeLessThan(10000); // Check if file size is less than 10KB
     });
-
+  
     test('BookingFormModal component file is readable', () => {
         expect(() => fs.readFileSync(filePath, 'utf8')).not.toThrow();
     });

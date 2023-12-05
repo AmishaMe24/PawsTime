@@ -52,3 +52,4 @@ describe('Header Component', () => {
         expect(fileContent.includes('<section')).toBe(true);
     });
 });
+  

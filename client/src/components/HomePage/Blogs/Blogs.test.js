@@ -16,7 +16,7 @@ describe('Blogs Component', () => {
     test('Blogs file contains "React" import', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('import React')).toBe(true);
-    });
+    });  
 
     test('Blogs file contains "Card" component', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');

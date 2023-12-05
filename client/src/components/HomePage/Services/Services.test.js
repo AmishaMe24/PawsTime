@@ -16,7 +16,7 @@ describe('Services Component', () => {
     test('Services file contains "React" import', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('import React')).toBe(true);
-    });
+    });  
 
     test('Services file contains "Container" component', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');

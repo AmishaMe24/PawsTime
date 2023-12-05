@@ -20,7 +20,7 @@ describe('PatientsListTable Component', () => {
 
     test('PatientsListTable component file has a .js extension', () => {
         expect(path.extname(filePath)).toBe('.js');
-    });
+    }); 
 
     test('PatientsListTable component file contains "export default"', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');

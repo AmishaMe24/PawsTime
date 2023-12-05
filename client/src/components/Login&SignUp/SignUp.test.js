@@ -22,7 +22,7 @@ describe('SignUp Component', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('useState')).toBe(true);
     });
-
+  
     test('SignUp file contains "axios" import', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('axios')).toBe(true);

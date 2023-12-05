@@ -17,7 +17,7 @@ describe('Sidebar Component', () => {
         const fileStats = fs.statSync(filePath);
         expect(fileStats.isFile()).toBe(true);
     });
-
+ 
     test('Sidebar component file has a .js extension', () => {
         expect(path.extname(filePath)).toBe('.js');
     });

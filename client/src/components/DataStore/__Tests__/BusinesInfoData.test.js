@@ -22,4 +22,4 @@ describe('BusinessInfoData Data File', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('export default businessInfoData')).toBe(true);
     });
-});
+}); 

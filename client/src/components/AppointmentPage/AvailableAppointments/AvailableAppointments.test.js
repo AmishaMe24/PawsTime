@@ -14,3 +14,4 @@ describe('AvailableAppointments Component', () => {
         expect(fileStats.size).toBeGreaterThan(0);
     });
 });
+  

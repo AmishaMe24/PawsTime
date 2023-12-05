@@ -17,7 +17,7 @@ describe('AddDoctor Component', () => {
         const fileStats = fs.statSync(filePath);
         const fileSizeInKB = fileStats.size / 1024; // Convert bytes to kilobytes
         expect(fileSizeInKB).toBeLessThan(10); // Check if file size is less than 10KB
-    });
+    });  
 
     test('AddDoctor component file is readable', () => {
         expect(() => fs.readFileSync(filePath, 'utf8')).not.toThrow();

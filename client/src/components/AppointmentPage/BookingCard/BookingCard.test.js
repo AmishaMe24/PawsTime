@@ -14,3 +14,4 @@ describe('BookingCard Component', () => {
         expect(fileStats.size).toBeGreaterThan(0);
     });
 });
+  

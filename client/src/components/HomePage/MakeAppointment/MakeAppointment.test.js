@@ -17,7 +17,7 @@ describe('MakeAppointments Component', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('import React')).toBe(true);
     });
-
+  
     test('MakeAppointments file contains "makeStyles" from Material-UI', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('makeStyles')).toBe(true);

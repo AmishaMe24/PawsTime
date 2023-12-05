@@ -17,7 +17,7 @@ describe('FeaturedService Component', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('import React')).toBe(true);
     });
-
+ 
     test('FeaturedService file contains "Grid" component', () => {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         expect(fileContent.includes('Grid')).toBe(true);
