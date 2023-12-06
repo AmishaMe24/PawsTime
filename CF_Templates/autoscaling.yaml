@@ -1,0 +1,58 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: "Auto Scaling Group "
+
+Parameters:
+  StackName:
+    Type: String
+    Description: Name for the CloudFormation stack
+    Default: paws-time
+  VPCId:
+    Type: "AWS::SSM::Parameter::Value<String>"
+    Description: "VPCId of the existing VPC"
+  PrivateSubnet0:
+    Type: "AWS::SSM::Parameter::Value<String>"
+    Description: "SubnetId of private subnet 0"
+  PrivateSubnet1:
+    Type: "AWS::SSM::Parameter::Value<String>"
+    Description: "SubnetId of private subnet 1"
+
+Resources:
+  LaunchConfig:
+    Type: "AWS::AutoScaling::LaunchConfiguration"
+    Properties:
+      ImageId: "ami-0230bd60aa48260c6"  #Ami of the preconfigured EC2 with the required settings and node js installed
+      InstanceType: "t2.micro"  # Tyoe of Ec2 instance
+      KeyName: "your-key-pair"  # Key and Pair for login to Ec2
+      SecurityGroups:
+        - !ImportValue "WebAppSecurityGroupId"
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          # Additional user data script if needed
+
+  AutoScalingGroup:
+    Type: "AWS::AutoScaling::AutoScalingGroup"
+    Properties:
+      VPCZoneIdentifier:
+        - !ImportValue "publicSubnet0"
+        - !ImportValue "PrivateSubnet1"
+      LaunchConfigurationName:
+      #impoirting loadbalancer from the loadbalancer template output
+        - !ImportValue "LoadBalancerDNSName"
+      MinSize: "1" #minimum number of instance that will be launched
+      MaxSize: "3" #maximum number of isntance that can be launched
+      DesiredCapacity: "1" #Minimum number of instance that is desired 
+      HealthCheckType: "EC2"
+      HealthCheckGracePeriod: "300"  #time to check instance health, aftr 300 seconds instance will be declared unhealthy
+      Tags:
+        - Key: "Name"
+          Value: "MyAutoScalingGroup"
+          PropagateAtLaunch: "true"
+
+Outputs:
+  AutoScalingGroup:
+    Description: "Auto Scaling Group Name"
+    Value: !Ref "AutoScalingGroup"
+    Export:
+      Name: !Sub "${AWS::StackName}-AutoScalingGroup"

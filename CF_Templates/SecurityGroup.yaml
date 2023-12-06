@@ -1,0 +1,46 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'AWS CloudFormation template for EC2 instance with Node.js 18 installed using UserData'
+
+Parameters:
+Parameters:
+  StackName:
+    Type: String
+    Description: Name for the CloudFormation stack
+    Default: paws-time
+
+Resources:
+  WebAppSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: 'Security group for the Node.js web application and MongoDB'
+      VpcId: vpc-00d9412a36a3de2c5
+      #inbound traffic rules for security group
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: '0.0.0.0/0'
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: '0.0.0.0/0'
+        - IpProtocol: tcp
+          FromPort: 27017
+          ToPort: 27017
+          CidrIp: '0.0.0.0/0'
+        - IpProtocol: tcp
+          FromPort: 3000
+          ToPort: 3000
+          CidrIp: '0.0.0.0/0'
+      Tags:
+        - Key: "Name"
+          Value: !Sub "${AWS::StackName}-security-group"
+
+Outputs:
+  WebAppSecurityGroupId:
+    Description: "SecurityGroup for PawsTime"
+    Value:
+      Ref: "WebAppSecurityGroup"
+    Export:
+      Name: WebAppSecurityGroupId
+
