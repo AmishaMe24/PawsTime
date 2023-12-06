@@ -11,11 +11,14 @@ import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles({
     table: {
-        width: 850,
+        width: '100%',
         overflowY: 'scroll',
         '& .MuiTableCell-head': {
             fontWeight: 'bold'
         }
+    },
+    tableCell: {
+        width: 60,
     },
 });
 
@@ -32,13 +35,13 @@ const AppointmentsTable = ({ appointments }) => {
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>User Name</TableCell>
-                        <TableCell align="center">Service</TableCell>
-                        <TableCell align="center">Pet</TableCell>
-                        <TableCell align="center">Date</TableCell>
-                        <TableCell align="center">Contact</TableCell>
-                        <TableCell align="center">Doctor</TableCell>
-                        <TableCell align="center">Status</TableCell>
+                        <TableCell className={classes.tableCell}>User Name</TableCell>
+                        <TableCell align="center" className={classes.tableCell}>Service</TableCell>
+                        <TableCell align="center" className={classes.tableCell}>Pet</TableCell>
+                        <TableCell align="center" className={classes.tableCell}>Date</TableCell>
+                        <TableCell align="center" className={classes.tableCell}>Contact</TableCell>
+                        <TableCell align="center" className={classes.tableCell}>Doctor</TableCell>
+                        <TableCell align="center" className={classes.tableCell}>Status</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

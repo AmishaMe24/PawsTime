@@ -58,7 +58,7 @@ const AppointmentList = () => {
         <div>
             {user ? (
                 <>
-                    <Grid container spacing={3}>
+                    <Grid container>
                         <Grid item xs={12} sm={4}>
                             <h1 style={{ marginBottom: '5rem', marginLeft: '6rem', color: "rgb(5, 99, 141)", fontFamily: "initial" }}>Appointment Calendar</h1>
                             <div style={{ marginBottom: '5rem', marginLeft: '4rem' }}>
@@ -69,7 +69,7 @@ const AppointmentList = () => {
                                 <br></br>
                             </div>
                         </Grid>
-                        <Grid item xs={12} sm={8}>
+                        <Grid item xs={12} sm={8} style={{ marginLeft: '-2rem' }}>
                             <div className="appointments-date-heading">
                                 <h2 style={{ color: "rgb(5, 99, 141)", fontFamily: "initial" }}>Total Appointments: {appointments.length}</h2>
                                 <h3 style={{ color: "rgb(5, 99, 141)", fontFamily: "initial" }}>{selectedDate.toDateString()}</h3>
