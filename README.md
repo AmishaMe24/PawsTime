@@ -8,7 +8,7 @@ Comprehensive Pet Care Web Application
 4. Run 'npm run dev' to run the server api
 
 
-##CloudFormation Templates
+## CloudFormation Templates
 Folder:CFTemplates
 
 Prerequisites
