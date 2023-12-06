@@ -1,0 +1,78 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: "Elastic Load Balancer "
+
+Parameters:
+  StackName:
+    Type: String
+    Description: Name for the CloudFormation stack
+    Default: paws-time
+  VPCId:
+    Type: "AWS::SSM::Parameter::Value<String>"
+    Description: "VPCId of the existing VPC"
+  PrivateSubnet0:
+    Type: "AWS::SSM::Parameter::Value<String>"
+    Description: "SubnetId of private subnet 0"
+  PrivateSubnet1:
+    Type: "AWS::SSM::Parameter::Value<String>"
+    Description: "SubnetId of private subnet 1"
+
+Resources:
+  LoadBalancer:
+    Type: "AWS::ElasticLoadBalancing::LoadBalancer"
+    Properties:
+      Subnets:
+        - !ImportValue "publicSubnet0"
+        - !ImportValue "PrivateSubnet1"
+      SecurityGroups:
+        - !ImportValue "WebAppSecurityGroupId"  # Specify your security group ID
+      Listeners:
+        - LoadBalancerPort: "80"
+          InstancePort: "80"
+          Protocol: "HTTP"
+
+  LaunchConfig:
+    Type: "AWS::AutoScaling::LaunchConfiguration"
+    Properties:
+      ImageId: "ami-0230bd60aa48260c6"  # Specify your AMI ID
+      InstanceType: "t2.micro"  # Specify your instance type
+      KeyName: "your-key-pair"  # Specify your key pair
+      SecurityGroups:
+        - !ImportValue "WebAppSecurityGroupId"  # Specify your security group IDs
+      UserData:
+      #userdata for ec2 instance which will install node js
+        Fn::Base64: !Sub |
+          #!/bin/bash
+
+          # Install Node.js 18
+          curl -sL https://deb.nodesource.com/setup_18.x | bash -
+          apt-get install -y nodejs
+
+          # Verify Node.js installation
+          node -v
+
+  # AutoScalingGroup:
+  #   Type: "AWS::AutoScaling::AutoScalingGroup"
+  #   Properties:
+  #     VPCZoneIdentifier:
+  #       - !ImportValue "publicSubnet0"
+  #       - !ImportValue "PrivateSubnet1"
+  #     LaunchConfigurationName: Ref: "LaunchConfig"
+  #     MinSize: "2"
+  #     MaxSize: "5"
+  #     DesiredCapacity: "2"
+  #     HealthCheckType: "EC2"
+  #     HealthCheckGracePeriod: "300" 
+  #     LoadBalancerNames:
+  #       - Ref: "LoadBalancer"
+  #     Tags:
+  #       - Key: "Name"
+  #         Value: "MyAutoScalingGroup"
+  #         PropagateAtLaunch: "true"
+
+Outputs:
+  LoadBalancerDNSName:
+    Description: "DNS name of the Elastic Load Balancer"
+    Value: !GetAtt "LoadBalancer.DNSName"
+    Export:
+      Name: !Sub "${AWS::StackName}-LoadBalancerDNSName"

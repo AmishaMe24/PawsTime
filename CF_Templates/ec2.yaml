@@ -1,0 +1,204 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'AWS CloudFormation template for EC2 instance with Node.js 18 installed using UserData'
+
+# Parameters:
+#   Name:
+#     Type: String
+#     Description: Name for the CloudFormation stack
+#     Default: paws-time
+#   # KeyName:
+#   #   Description: 'Name of an existing EC2 KeyPair to enable SSH access to the instance'
+#   #   Type: 'AWS::EC2::KeyPair::KeyName'
+#   #   ConstraintDescription: 'Must be an existing EC2 KeyPair'
+#   ExistingEIP:
+#     Description: 'AllocationId of an existing Elastic IP to assign to the instance'
+#     Type: 'AWS::EC2::EIP::AllocationId'
+#     ConstraintDescription: 'Must be an existing Elastic IP'
+#   ExistingSecurityGroup:
+#     Description: 'ID of an existing security group to apply to the instance'
+#     Type: 'AWS::EC2::SecurityGroup::Id'
+#     ConstraintDescription: 'Must be an existing security group'
+#   ExistingVPC:
+#     Description: 'ID of an existing VPC to launch the instance into'
+#     Type: 'AWS::EC2::VPC::Id'
+#     ConstraintDescription: 'Must be an existing VPC'
+#   ExistingSubnet:
+#     Description: 'ID of an existing subnet to launch the instance into'
+#     Type: 'AWS::EC2::Subnet::Id'
+#     ConstraintDescription: 'Must be an existing subnet in the specified VPC'
+
+# Resources:
+#   EC2Instance:
+#     Type: 'AWS::EC2::Instance'
+#     Properties:
+#       InstanceType: 't2.micro'
+#       KeyName: Test
+#       SubnetId: !ImportValue "${AWS::Name}-PublicSubnet0"
+#       SecurityGroupIds:
+#         - !Ref ExistingSecurityGroup
+#       Tags:
+#         - Key: 'Name'
+#           Value: 'EC2InstanceWithNodejs18'
+#       UserData:
+#         Fn::Base64: |
+#           #!/bin/bash
+
+#           # Install Node.js 18
+#           curl -sL https://deb.nodesource.com/setup_18.x | bash -
+#           apt-get install -y nodejs
+
+#           # Verify Node.js installation
+#           node -v
+
+
+# AWSTemplateFormatVersion: "2010-09-09"
+
+# Description: "Creates an EC2 instance in the VPC with Managed NAT"
+
+# Parameters:
+#   Name:
+#     Type: String
+#     Description: Name of the VPC CloudFormation stack
+#     Default: paws-time
+
+# Resources:
+#   MyEC2Instance:
+#     Type: "AWS::EC2::Instance"
+#     Properties:
+#       InstanceType: "t2.micro"
+#       # ImageId: "ami-xxxxxxxxxxxxxxxxx"  # Specify your desired AMI ID
+#       KeyName: "Test"  # Specify your key pair name
+#       SubnetId: !ImportValue "${Name}-PublicSubnet0"
+#       SecurityGroupIds:
+#         - !ImportValue "${Name}-security-group"
+#       UserData:
+#         Fn::Base64: |
+#           #!/bin/bash
+
+#           # Install Node.js 18
+#           curl -sL https://deb.nodesource.com/setup_18.x | bash -
+#           apt-get install -y nodejs
+
+#           # Verify Node.js installation
+#           node -v
+
+
+# Outputs:
+#   InstanceId:
+#     Description: "InstanceId of the EC2 instance"
+#     Value: !Ref MyEC2Instance
+#     Export:
+#       Name: !Sub "${AWS::StackName}-InstanceId"
+
+#   ElasticIPAllocationId:
+#     Description: "AllocationId of the Elastic IP"
+#     Value: !GetAtt ElasticIP.AllocationId
+#     Export:
+#       Name: !Sub "${AWS::StackName}-ElasticIPAllocationId"
+
+
+
+
+Parameters:
+  ElasticIPExportName:
+    Type: String
+    Description: "Name of the Elastic IP export from the other stack"
+    Default: "ElasticIPPublicIP"
+  StackName:
+    Type: String
+    Description: Name for the CloudFormation stack
+    Default: paws-time
+  InstanceType:
+    Description: WebServer EC2 instance type
+    Type: String
+    Default: t3.micro
+    #types of instance available on AWS
+    AllowedValues: [t2.nano, 
+      t2.micro, 
+      t2.small, 
+      t2.medium, 
+      t2.large, 
+      t2.xlarge, 
+      t2.2xlarge,
+      t3.nano, 
+      t3.micro, 
+      t3.small, 
+      t3.medium, 
+      t3.large, 
+      t3.xlarge, 
+      t3.2xlarge,
+      m4.large, 
+      m4.xlarge, 
+      m4.2xlarge, 
+      m4.4xlarge, 
+      m4.10xlarge,
+      m5.large, 
+      m5.xlarge, 
+      m5.2xlarge, 
+      m5.4xlarge,
+      c5.large, 
+      c5.xlarge, 
+      c5.2xlarge, 
+      c5.4xlarge, 
+      c5.9xlarge,
+      g3.8xlarge,
+      r5.large, 
+      r5.xlarge, 
+      r5.2xlarge, 
+      r5.4xlarge, 
+      r3.12xlarge,
+      i3.xlarge, 
+      i3.2xlarge, 
+      i3.4xlarge, 
+      i3.8xlarge,
+      d2.xlarge,
+      d2.2xlarge, 
+      d2.4xlarge, 
+      d2.8xlarge]
+    ConstraintDescription: must be a valid EC2 instance type.
+  KeyName:
+    Description: Name of an existing EC2 KeyPair
+    Type: AWS::EC2::KeyPair::KeyName
+    ConstraintDescription: must be an existing EC2 KeyPair.
+  LatestAmiId:
+    Type:  'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref 'InstanceType'
+      SecurityGroups: 
+        - !ImportValue "WebAppSecurityGroupId"
+      KeyName: !Ref 'KeyName'
+      ImageId: !Ref 'LatestAmiId'
+#Associating elastic ip address to the ec2 instance which was created in the network template
+  ElasticIPAssociation:
+    Type: "AWS::EC2::EIPAssociation"
+    Properties:
+      AllocationId: 
+        Fn::ImportValue: !Ref "ElasticIPExportName"
+      InstanceId: 
+        Ref: "EC2Instance"
+      UserData:
+      #user data for ec2 instance to install node js 
+        Fn::Base64: |
+          #!/bin/bash
+
+          # Install Node.js 18
+          curl -sL https://deb.nodesource.com/setup_18.x | bash -
+          apt-get install -y nodejs
+
+          # Verify Node.js installation
+          node -v
+
+Outputs:
+  InstanceId:
+    Description: InstanceId of the newly created EC2 instance
+    Value: !Ref 'EC2Instance'
+  InstanceIPAddress:
+    Description: IP address of the newly created EC2 instance
+    Value: !Ref 'IPAddress'
+
+
+
