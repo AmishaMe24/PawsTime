@@ -1,4 +1,4 @@
-# petpeaves
+# Pet Peaves
 Comprehensive Pet Care Web Application
 
 ## How to use
@@ -52,6 +52,11 @@ Description: Creates an EC2 instance for creating AMI to be used in AutoScaling 
 
 AMI Creation is manual after the instance is created using the CloudFormation Template
 
+## Testing
+## How to use
+1. 'cd' into the project directories (client AND server)
+2. Run 'npm run test' to run the test cases
+3. If you get an error about missing packages or modules, you need to install them using 'npm install'.
 
 ## Deployment
 
