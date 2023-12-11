@@ -84,3 +84,51 @@ aws cloudformation delete-stack --stack-name YourNetworkStack
 1. 'cd' into the project directories (client AND server)
 2. Run 'npm run test' to run the test cases
 3. If you get an error about missing packages or modules, you need to install them using 'npm install'.
+
+
+## Acceptance Tests
+Use Case: Booking a Veterinary Appointment on Pawstime
+
+Scenario:
+Alice is a pet owner who wants to book a veterinary appointment for her cat, Whiskers, on the Pawstime website.
+
+Execution Steps:
+
+User Registration:
+
+Alice visits the Pawstime website.
+She clicks on the "Sign Up" button and fills out the registration form, providing her name, email, password. She is only able to signup if she provides a valid email and satisfies the passwprd criteria.
+
+User Login:
+
+Alice clicks on the "Sign In" button.
+She enters her email and password to log into her Pawstime account.
+User Dashboard:
+
+After logging in, Alice is redirected to the home page.
+The hompage has a button displaying Book Your appointment.
+
+Booking Veterinary Appointment:
+Then she is redirected to the Appointment booking page. She sees a calendar on the left where she can choose a date. And on the right it displays options for booking veterinary or grooming appointments.
+Alice clicks on the "Book Veterinary Appointment" option.
+Then a dialog open where she fills the required details for the appointment, chooses a preferred time slot and clicks on book.
+The booked time slot is now marked as unavailable for other users.
+On a particular day only the time slots that have not been previously booked by any other user are shown. Grooming time slots booking does not effect Veterinary time slots booking.
+
+Expected Output or Behavior:
+
+Successful Booking:
+
+Confirmation message: "Your appointment is booked."
+
+User Dashboard Updates:
+
+Go to the Dashboard, pick the date for which slot was booked.
+User is only able to see the appointments which they have booked. They cant see any other user's appointments.
+The user dashboard displays the booked veterinary appointment with details.
+
+Admin Dashboard Updates:
+
+The admin dashboard reflects all the bookings for all the users.
+
+By following these steps, users like Alice can easily book veterinary appointments for their pets, and the system ensures that no two users can book the same time slot to avoid scheduling conflicts.
