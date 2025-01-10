@@ -16,7 +16,7 @@ const app = express();
 
 // allow cross-origin requests
 const corsOptions = {
-  origin: '',
+  origin: 'https://paws-time-client.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
