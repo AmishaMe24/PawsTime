@@ -1,1 +1,1 @@
-export const baseUrl = "https://paws-time-server.vercel.app/"
+export const baseUrl = "https://paws-time-server.vercel.app"
